@@ -1,115 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NYX Tech Inc.</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #000;
-      color: #fff;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NYX Tech Inc.</title>
 
-    header {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: radial-gradient(circle at center, #1a0000, #000);
-    }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 
-    h1 {
-      font-size: 3rem;
-      letter-spacing: 8px;
-      color: #ff1a1a;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: black;
+  color: white;
+}
 
-    p {
-      max-width: 600px;
-      opacity: 0.8;
-    }
+header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10%;
+}
 
-    .btn {
-      margin-top: 20px;
-      padding: 12px 30px;
-      border: 1px solid #ff1a1a;
-      color: #ff1a1a;
-      text-decoration: none;
-      transition: 0.3s;
-    }
+h1 {
+  font-size: 4rem;
+  color: #ff1a1a;
+}
 
-    .btn:hover {
-      background: #ff1a1a;
-      color: #000;
-    }
+.hero-text {
+  font-size: 1.5rem;
+  max-width: 500px;
+  opacity: 0.8;
+}
 
-    section {
-      padding: 80px 20px;
-      text-align: center;
-    }
+section {
+  padding: 100px 10%;
+}
 
-    .grid {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
+.products {
+  display: flex;
+  gap: 40px;
+}
 
-    .card {
-      border: 1px solid #222;
-      padding: 30px;
-      max-width: 300px;
-      background: #0a0a0a;
-    }
+.card {
+  border: 1px solid #222;
+  padding: 40px;
+  width: 300px;
+  background: #0a0a0a;
+}
 
-    footer {
-      padding: 40px;
-      text-align: center;
-      border-top: 1px solid #222;
-      opacity: 0.6;
-    }
-  </style>
+.card h3 {
+  color: #ff1a1a;
+}
+
+footer {
+  text-align: center;
+  padding: 50px;
+  opacity: 0.5;
+}
+</style>
 </head>
+
 <body>
 
 <header>
   <h1>NYX TECH INC.</h1>
-  <p>The Intelligence Layer of the World</p>
-  <a href="#about" class="btn">Explore NYX OS</a>
+  <p class="hero-text">The Intelligence Layer of the World</p>
 </header>
 
-<section id="about">
-  <h2>About NYX</h2>
-  <p>NYX Tech Inc. is building a new layer of intelligence that transforms how humans and enterprises interact with technology.</p>
+<section>
+  <h2>About</h2>
+  <p>NYX Tech Inc. is building the next generation of intelligence systems that redefine how humans and enterprises make decisions.</p>
 </section>
 
 <section>
   <h2>Products</h2>
-  <div class="grid">
+  <div class="products">
     <div class="card">
       <h3>NYX OS</h3>
-      <p>AI-powered operating system that automates decisions and enhances productivity.</p>
+      <p>AI-powered operating system designed to automate decisions and optimize performance.</p>
     </div>
+
     <div class="card">
       <h3>NYX CORE</h3>
-      <p>Physical AI device that brings intelligence into the real world.</p>
+      <p>Physical AI device that brings digital intelligence into the real world.</p>
     </div>
   </div>
 </section>
 
 <section>
   <h2>Vision</h2>
-  <p>Building the global intelligence infrastructure for the next generation.</p>
-</section>
-
-<section>
-  <h2>Founder</h2>
-  <p>Adilson Smith Huamán Quispe<br>CEO & Founder</p>
+  <p>Building the global intelligence infrastructure for the future.</p>
 </section>
 
 <footer>
