@@ -15,85 +15,151 @@ body {
   color: white;
 }
 
+/* NAV */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 10%;
+  border-bottom: 1px solid #111;
+}
+
+.logo {
+  color: #ff1a1a;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+/* HERO */
 header {
-  height: 100vh;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 10%;
+  padding: 0 10%;
 }
 
 h1 {
   font-size: 4rem;
   color: #ff1a1a;
+  margin: 0;
 }
 
 .hero-text {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   max-width: 500px;
-  opacity: 0.8;
+  opacity: 0.7;
+  margin-top: 10px;
 }
 
+/* SECTIONS */
 section {
-  padding: 100px 10%;
+  padding: 80px 10%;
 }
 
-.products {
-  display: flex;
-  gap: 40px;
-}
-
-.card {
-  border: 1px solid #222;
-  padding: 40px;
-  width: 300px;
-  background: #0a0a0a;
-}
-
-.card h3 {
+h2 {
   color: #ff1a1a;
 }
 
+/* PRODUCTS */
+.products {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.card {
+  border: 1px solid #111;
+  padding: 30px;
+  width: 300px;
+  background: #0a0a0a;
+  transition: 0.3s;
+}
+
+.card:hover {
+  border: 1px solid #ff1a1a;
+  transform: translateY(-5px);
+}
+
+/* FOOTER */
 footer {
   text-align: center;
-  padding: 50px;
-  opacity: 0.5;
+  padding: 40px;
+  border-top: 1px solid #111;
+  opacity: 0.6;
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
+<nav>
+  <div class="logo">NYX</div>
+  <div>TECH INC.</div>
+</nav>
+
+<!-- HERO -->
 <header>
   <h1>NYX TECH INC.</h1>
-  <p class="hero-text">The Intelligence Layer of the World</p>
+  <p class="hero-text">
+    The Intelligence Layer of the World.  
+    Powering decisions across individuals and enterprises.
+  </p>
 </header>
 
+<!-- ABOUT -->
 <section>
   <h2>About</h2>
-  <p>NYX Tech Inc. is building the next generation of intelligence systems that redefine how humans and enterprises make decisions.</p>
+  <p>
+    NYX Tech Inc. is building a new technological paradigm focused on artificial intelligence,
+    automation, and decision-making systems. Our mission is to redefine how humans and enterprises
+    interact with digital intelligence.
+  </p>
 </section>
 
+<!-- PRODUCTS -->
 <section>
   <h2>Products</h2>
   <div class="products">
+
     <div class="card">
       <h3>NYX OS</h3>
-      <p>AI-powered operating system designed to automate decisions and optimize performance.</p>
+      <p>
+        Advanced AI operating system designed to automate decisions,
+        optimize performance, and act as a global intelligence layer.
+      </p>
     </div>
 
     <div class="card">
       <h3>NYX CORE</h3>
-      <p>Physical AI device that brings digital intelligence into the real world.</p>
+      <p>
+        Physical AI device that brings intelligence into the real world,
+        allowing direct interaction between humans and autonomous systems.
+      </p>
     </div>
+
   </div>
 </section>
 
+<!-- MISSION -->
 <section>
-  <h2>Vision</h2>
-  <p>Building the global intelligence infrastructure for the future.</p>
+  <h2>Mission</h2>
+  <p>
+    To develop intelligent systems that simplify decision-making,
+    increase efficiency, and empower individuals and organizations globally.
+  </p>
 </section>
 
+<!-- VISION -->
+<section>
+  <h2>Vision</h2>
+  <p>
+    To become the global standard for intelligent systems,
+    building the infrastructure that powers the future of human and enterprise decisions.
+  </p>
+</section>
+
+<!-- FOOTER -->
 <footer>
   <p>NYX Tech Inc. © 2026</p>
 </footer>
