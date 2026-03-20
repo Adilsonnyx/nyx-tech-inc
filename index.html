@@ -6,6 +6,28 @@
 <title>NYX Tech Inc.</title>
 
 <style>
+  nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: black;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  border-bottom: 1px solid #111;
+  z-index: 1000;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: red;
+}
   a {
   display: inline-block;
   margin-top: 10px;
@@ -19,7 +41,9 @@ a:hover {
   background: red;
   color: black;
 }
-body {
+body { body {
+  margin-top: 60px;
+}
   margin: 0;
   font-family: Arial, sans-serif;
   background: black;
@@ -174,8 +198,18 @@ footer {
 
   <div class="card">
     <h3>NYX CORE</h3>
-    <p>Physical AI device that connects digital intelligence with the real world.</p>
-  </div>
+    <section id="products">
+  <h2>NYX CORE</h2>
+
+  <p style="max-width:600px; margin:auto;">
+    A new category of physical intelligence device.  
+    Designed to bring autonomous decision-making into the real world.
+  </p>
+
+  <br>
+
+  <a href="nyxcore.html" class="btn">Discover NYX CORE</a>
+</section>
 </section>
 
 <section>
