@@ -14,7 +14,20 @@ body {
   text-align: center;
   overflow-x: hidden;
 }
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: 1px solid red;
+  color: red;
+  text-decoration: none;
+  transition: 0.3s;
+}
 
+.btn:hover {
+  background: red;
+  color: black;
+}
 /* LOADING SCREEN */
 #loader {
   position: fixed;
@@ -127,6 +140,7 @@ footer {
   <img src="./logo.png" class="logo">
   <h1>NYX TECH INC.</h1>
   <p class="tagline">The Intelligence Layer of the World</p>
+  <a href="#products" class="btn">Explore</a>
 </header>
 
 <section>
@@ -137,7 +151,7 @@ footer {
   </p>
 </section>
 
-<section>
+<section id="products">
   <h2>Products</h2>
 
   <div class="card">
