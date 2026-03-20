@@ -11,22 +11,24 @@
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: black;
-  color: white;
+  background: #000;
+  color: #fff;
 }
 
-/* NAV */
+/* NAVBAR */
 nav {
   display: flex;
   justify-content: space-between;
-  padding: 20px 10%;
+  align-items: center;
+  padding: 20px 8%;
   border-bottom: 1px solid #111;
 }
 
 .logo {
-  color: #ff1a1a;
+  font-size: 20px;
   font-weight: bold;
-  letter-spacing: 3px;
+  color: #ff1a1a;
+  letter-spacing: 4px;
 }
 
 /* HERO */
@@ -35,57 +37,69 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 10%;
+  padding: 0 8%;
 }
 
 h1 {
-  font-size: 4rem;
-  color: #ff1a1a;
+  font-size: 60px;
   margin: 0;
+  color: #ff1a1a;
 }
 
 .hero-text {
-  font-size: 1.3rem;
+  font-size: 18px;
   max-width: 500px;
+  margin-top: 15px;
   opacity: 0.7;
-  margin-top: 10px;
 }
 
-/* SECTIONS */
+/* SECCIONES */
 section {
-  padding: 80px 10%;
+  padding: 80px 8%;
 }
 
 h2 {
   color: #ff1a1a;
+  margin-bottom: 20px;
 }
 
-/* PRODUCTS */
+/* PRODUCTOS */
 .products {
   display: flex;
-  gap: 40px;
+  gap: 30px;
   flex-wrap: wrap;
 }
 
 .card {
-  border: 1px solid #111;
+  flex: 1;
+  min-width: 280px;
   padding: 30px;
-  width: 300px;
+  border: 1px solid #111;
   background: #0a0a0a;
   transition: 0.3s;
 }
 
 .card:hover {
-  border: 1px solid #ff1a1a;
+  border-color: #ff1a1a;
   transform: translateY(-5px);
+}
+
+/* FUNDADOR */
+.founder {
+  max-width: 600px;
+}
+
+/* CONTACTO */
+.contact p {
+  margin: 6px 0;
 }
 
 /* FOOTER */
 footer {
   text-align: center;
-  padding: 40px;
+  padding: 30px;
   border-top: 1px solid #111;
-  opacity: 0.6;
+  opacity: 0.5;
 }
 </style>
 </head>
@@ -111,9 +125,8 @@ footer {
 <section>
   <h2>About</h2>
   <p>
-    NYX Tech Inc. is building a new technological paradigm focused on artificial intelligence,
-    automation, and decision-making systems. Our mission is to redefine how humans and enterprises
-    interact with digital intelligence.
+    NYX Tech Inc. is building a new generation of intelligent systems focused on automation,
+    artificial intelligence, and decision-making.
   </p>
 </section>
 
@@ -121,23 +134,15 @@ footer {
 <section>
   <h2>Products</h2>
   <div class="products">
-
     <div class="card">
       <h3>NYX OS</h3>
-      <p>
-        Advanced AI operating system designed to automate decisions,
-        optimize performance, and act as a global intelligence layer.
-      </p>
+      <p>AI operating system that automates decisions and enhances productivity.</p>
     </div>
 
     <div class="card">
       <h3>NYX CORE</h3>
-      <p>
-        Physical AI device that brings intelligence into the real world,
-        allowing direct interaction between humans and autonomous systems.
-      </p>
+      <p>Physical AI device that brings intelligence into the real world.</p>
     </div>
-
   </div>
 </section>
 
@@ -145,8 +150,7 @@ footer {
 <section>
   <h2>Mission</h2>
   <p>
-    To develop intelligent systems that simplify decision-making,
-    increase efficiency, and empower individuals and organizations globally.
+    To create intelligent systems that simplify decisions and improve global efficiency.
   </p>
 </section>
 
@@ -154,12 +158,28 @@ footer {
 <section>
   <h2>Vision</h2>
   <p>
-    To become the global standard for intelligent systems,
-    building the infrastructure that powers the future of human and enterprise decisions.
+    To become the global intelligence infrastructure powering the future.
   </p>
 </section>
 
-<!-- FOOTER -->
+<!-- FOUNDER -->
+<section class="founder">
+  <h2>Founder</h2>
+  <p><strong>Adilson Smith Huamán Quispe</strong></p>
+  <p>CEO & Founder – NYX Tech Inc.</p>
+  <p>
+    Focused on building advanced AI systems and leading the development of NYX OS and NYX CORE.
+  </p>
+</section>
+
+<!-- CONTACT -->
+<section class="contact">
+  <h2>Contact</h2>
+  <p>Email: Adilsonsmithhq@gmail.com</p>
+  <p>Phone: +51 984 594 024</p>
+  <p>Location: Huancayo, Perú</p>
+</section>
+
 <footer>
   <p>NYX Tech Inc. © 2026</p>
 </footer>
