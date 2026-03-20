@@ -5,184 +5,94 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NYX Tech Inc.</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-
 <style>
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: #000;
-  color: #fff;
+  font-family: Arial, sans-serif;
+  background: black;
+  color: white;
 }
 
-/* NAVBAR */
+/* NAV */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 8%;
-  border-bottom: 1px solid #111;
+  padding: 20px 10%;
+  border-bottom: 1px solid #222;
 }
 
-.logo {
-  font-size: 20px;
-  font-weight: bold;
-  color: #ff1a1a;
-  letter-spacing: 4px;
+nav img {
+  height: 50px;
+}
+
+.brand {
+  font-size: 18px;
 }
 
 /* HERO */
 header {
-  height: 90vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 8%;
+  text-align: center;
+  padding: 100px 20px;
 }
 
 h1 {
-  font-size: 60px;
-  margin: 0;
-  color: #ff1a1a;
-}
-
-.hero-text {
-  font-size: 18px;
-  max-width: 500px;
-  margin-top: 15px;
-  opacity: 0.7;
+  color: red;
+  font-size: 50px;
 }
 
 /* SECCIONES */
 section {
-  padding: 80px 8%;
-}
-
-h2 {
-  color: #ff1a1a;
-  margin-bottom: 20px;
-}
-
-/* PRODUCTOS */
-.products {
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
+  padding: 60px 10%;
+  max-width: 800px;
+  margin: auto;
 }
 
 .card {
-  flex: 1;
-  min-width: 280px;
-  padding: 30px;
-  border: 1px solid #111;
-  background: #0a0a0a;
-  transition: 0.3s;
-}
-
-.card:hover {
-  border-color: #ff1a1a;
-  transform: translateY(-5px);
-}
-
-/* FUNDADOR */
-.founder {
-  max-width: 600px;
-}
-
-/* CONTACTO */
-.contact p {
-  margin: 6px 0;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 30px;
-  border-top: 1px solid #111;
-  opacity: 0.5;
+  border: 1px solid #333;
+  padding: 20px;
+  margin-top: 15px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav>
-  <div class="logo">NYX</div>
-  <div>TECH INC.</div>
+  <img src="logo.png" alt="NYX Logo">
+  <div class="brand">NYX TECH INC.</div>
 </nav>
 
-<!-- HERO -->
 <header>
   <h1>NYX TECH INC.</h1>
-  <p class="hero-text">
-    The Intelligence Layer of the World.  
-    Powering decisions across individuals and enterprises.
-  </p>
+  <p>The Intelligence Layer of the World</p>
 </header>
 
-<!-- ABOUT -->
-<section>
-  <h2>About</h2>
-  <p>
-    NYX Tech Inc. is building a new generation of intelligent systems focused on automation,
-    artificial intelligence, and decision-making.
-  </p>
-</section>
-
-<!-- PRODUCTS -->
 <section>
   <h2>Products</h2>
-  <div class="products">
-    <div class="card">
-      <h3>NYX OS</h3>
-      <p>AI operating system that automates decisions and enhances productivity.</p>
-    </div>
 
-    <div class="card">
-      <h3>NYX CORE</h3>
-      <p>Physical AI device that brings intelligence into the real world.</p>
-    </div>
+  <div class="card">
+    <h3>NYX OS</h3>
+    <p>Sistema inteligente que automatiza decisiones.</p>
+  </div>
+
+  <div class="card">
+    <h3>NYX CORE</h3>
+    <p>Dispositivo físico que lleva la IA al mundo real.</p>
   </div>
 </section>
 
-<!-- MISSION -->
 <section>
-  <h2>Mission</h2>
-  <p>
-    To create intelligent systems that simplify decisions and improve global efficiency.
-  </p>
-</section>
-
-<!-- VISION -->
-<section>
-  <h2>Vision</h2>
-  <p>
-    To become the global intelligence infrastructure powering the future.
-  </p>
-</section>
-
-<!-- FOUNDER -->
-<section class="founder">
   <h2>Founder</h2>
   <p><strong>Adilson Smith Huamán Quispe</strong></p>
   <p>CEO & Founder – NYX Tech Inc.</p>
-  <p>
-    Focused on building advanced AI systems and leading the development of NYX OS and NYX CORE.
-  </p>
 </section>
 
-<!-- CONTACT -->
-<section class="contact">
+<section>
   <h2>Contact</h2>
   <p>Email: Adilsonsmithhq@gmail.com</p>
-  <p>Phone: +51 984 594 024</p>
   <p>Location: Huancayo, Perú</p>
 </section>
-
-<footer>
-  <p>NYX Tech Inc. © 2026</p>
-</footer>
 
 </body>
 </html>
