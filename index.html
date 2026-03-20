@@ -12,9 +12,40 @@ body {
   background: black;
   color: white;
   text-align: center;
+  overflow-x: hidden;
 }
 
-/* ANIMACIÓN */
+/* LOADING SCREEN */
+#loader {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+#loader h1 {
+  color: red;
+  font-size: 40px;
+  letter-spacing: 10px;
+  animation: fade 2s infinite;
+}
+
+@keyframes fade {
+  0% {opacity: 0.2;}
+  50% {opacity: 1;}
+  100% {opacity: 0.2;}
+}
+
+/* OCULTAR CONTENIDO */
+#content {
+  display: none;
+}
+
+/* ANIMACIÓN GENERAL */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -71,7 +102,7 @@ h2 {
 
 .card:hover {
   border-color: red;
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
 /* FOOTER */
@@ -83,6 +114,14 @@ footer {
 </head>
 
 <body>
+
+<!-- LOADING -->
+<div id="loader">
+  <h1>NYX</h1>
+</div>
+
+<!-- CONTENIDO -->
+<div id="content">
 
 <header>
   <img src="./logo.png" class="logo">
@@ -110,7 +149,6 @@ footer {
     <h3>NYX CORE</h3>
     <p>Physical AI device that connects digital intelligence with the real world.</p>
   </div>
-
 </section>
 
 <section>
@@ -133,15 +171,18 @@ footer {
   <p>CEO & Founder – NYX Tech Inc.</p>
 </section>
 
-<section>
-  <h2>Contact</h2>
-  <p>Email: Adilsonsmithhq@gmail.com</p>
-  <p>Location: Huancayo, Perú</p>
-</section>
-
 <footer>
   <p>NYX Tech Inc. © 2026 — All rights reserved</p>
 </footer>
+
+</div>
+
+<script>
+setTimeout(() => {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("content").style.display = "block";
+}, 2000);
+</script>
 
 </body>
 </html>
