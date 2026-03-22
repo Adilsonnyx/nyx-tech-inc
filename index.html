@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,35 +8,100 @@
 <style>
 body { margin:0; background:black; color:white; font-family:Arial; }
 
-#loader { position:fixed; width:100%; height:100vh; display:flex; justify-content:center; align-items:center; background:black; }
+/* LOADER */
+#loader {
+  position:fixed;
+  width:100%;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:black;
+}
 #loader h1 { color:red; }
 
+/* APP */
 #app { display:none; }
 
-.topbar { display:flex; justify-content:space-between; padding:15px; border-bottom:1px solid #222; }
-.left,.right { display:flex; gap:10px; }
+/* TOP */
+.topbar {
+  display:flex;
+  justify-content:space-between;
+  padding:15px;
+  border-bottom:1px solid #222;
+}
+button {
+  background:none;
+  border:1px solid red;
+  color:red;
+  padding:5px 10px;
+  cursor:pointer;
+}
 
-button { background:none; border:1px solid red; color:red; padding:5px 10px; cursor:pointer; }
-
-.pantalla { display:none; padding:20px; padding-bottom:80px; }
+/* PANTALLAS */
+.pantalla {
+  display:none;
+  padding:20px;
+  padding-bottom:80px;
+}
 .active { display:block; }
 
-.logo { width:600px; display:block; margin:40px auto; }
+/* LOGO */
+.logo {
+  width:500px;
+  display:block;
+  margin:40px auto;
+}
 
-.card { border:1px solid #333; padding:20px; margin-top:10px; background:#0a0a0a; }
+/* CEO */
+.ceo {
+  border:1px solid red;
+  padding:20px;
+  margin-top:30px;
+  line-height:1.6;
+}
 
-.ceo { border:1px solid red; padding:20px; margin-top:30px; line-height:1.6; }
+/* CARD */
+.card {
+  border:1px solid #333;
+  padding:20px;
+  margin-top:10px;
+  background:#0a0a0a;
+}
 
-.menu { position:fixed; bottom:0; width:100%; display:flex; justify-content:space-around; padding:10px; border-top:1px solid #222; background:black; }
+/* INPUT */
+input, select {
+  display:block;
+  width:90%;
+  margin:10px auto;
+  padding:10px;
+  background:black;
+  border:1px solid #333;
+  color:white;
+}
 
-input, select { display:block; width:90%; margin:10px auto; padding:10px; background:black; border:1px solid #333; color:white; }
+/* MENU */
+.menu {
+  position:fixed;
+  bottom:0;
+  width:100%;
+  display:flex;
+  justify-content:space-around;
+  padding:10px;
+  border-top:1px solid #222;
+  background:black;
+}
 
+/* GRAFICO */
 .chart {
   height:100px;
   background:linear-gradient(to top, red, transparent);
-  animation: move 2s infinite alternate;
+  animation:move 2s infinite alternate;
 }
-@keyframes move { from {transform:scaleY(0.5);} to {transform:scaleY(1);} }
+@keyframes move {
+  from {transform:scaleY(0.5);}
+  to {transform:scaleY(1);}
+}
 </style>
 </head>
 
@@ -48,86 +113,73 @@ input, select { display:block; width:90%; margin:10px auto; padding:10px; backgr
 
 <!-- TOP -->
 <div class="topbar">
-  <div class="left">
+  <div>
     <button onclick="mostrar('transferir')">Transferir</button>
     <button onclick="mostrar('enviar')">Enviar</button>
   </div>
-
-  <div class="right">
-    <button onclick="mostrar('login')">Iniciar sesión</button>
-    <button onclick="mostrar('registro')">Registrarse</button>
+  <div>
+    <button onclick="mostrar('login')">Login</button>
+    <button onclick="mostrar('registro')">Registro</button>
   </div>
 </div>
 
 <!-- INICIO -->
 <div id="inicio" class="pantalla active">
-  <img src="./logo.png" class="logo">
-
+  <img src="logo.png" class="logo">
   <h2 id="liquidez" style="text-align:center;"></h2>
 
   <div class="ceo">
 
-NYX TECH INC.  
-(Neural Yielding eXecution)  
+<h1>NYX TECH INC.</h1>
+<p><strong>(Neural Yielding eXecution)</strong></p>
 
-“NYX OS is the intelligence layer powering decisions across individuals and enterprises worldwide.”  
+<p><i>“NYX OS is the intelligence layer powering decisions across individuals and enterprises worldwide.”</i></p>
 
-ADILSON SMITH  
-CEO & Fundador – NYX Tech Inc.  
+<hr>
 
-CEO y fundador de NYX Tech Inc, enfocado en el desarrollo de tecnología avanzada e inteligencia digital. Lidero la creación de soluciones innovadoras que buscan transformar la forma en que las personas y empresas toman decisiones.  
+<h2>ADILSON SMITH</h2>
+<p><strong>CEO & Fundador – NYX Tech Inc.</strong></p>
 
-📍 Ubicación: EE.UU, NEW YOR  
+<p>
+CEO y fundador de NYX Tech Inc, enfocado en el desarrollo de tecnología avanzada e inteligencia digital.
+Lidero la creación de soluciones innovadoras que buscan transformar la forma en que las personas y empresas toman decisiones.
+</p>
 
-💼 Cargo: CEO & Fundador  
+<hr>
 
-🏢 Empresa: NYX Tech Inc.  
+<p><strong>📍 Ubicación:</strong> EE.UU, NEW YOR</p>
+<p><strong>💼 Cargo:</strong> CEO & Fundador</p>
+<p><strong>🏢 Empresa:</strong> NYX Tech Inc.</p>
+<p><strong>📧 Email:</strong> Adilsonsmithhq@gmail.com</p>
+<p><strong>📱 Teléfono:</strong> +21984594024</p>
+<p><strong>🌐 Web:</strong> https://adilsonnyx.github.io/nyx-tech-inc/</p>
 
-📧 Email: (Adilsonsmithhq@gmail.com)  
+<hr>
 
-📱 Teléfono: (+21984594024)  
+<p>
+Fundador de NYX Tech Inc., empresa enfocada en el desarrollo de sistemas inteligentes (NYX OS).
+Liderazgo en estrategia, innovación y crecimiento tecnológico.
+</p>
 
-🌐 Web: (https://adilsonnyx.github.io/nyx-tech-inc/)  
+<h3>ECOSISTEMA</h3>
+<p>NYX OS → cerebro</p>
+<p>NYX CORE → cuerpo físico</p>
 
-Fundador de NYX Tech Inc., empresa enfocada en el desarrollo de sistemas inteligentes (NYX OS). Liderazgo en estrategia, innovación y crecimiento tecnológico.  
+<p><strong>Construyendo la infraestructura de inteligencia global para la próxima generación.</strong></p>
 
-NYX TECH INC.  
+<h3>Visión</h3>
+<p>
+Construir la infraestructura de inteligencia global que permita a individuos y organizaciones operar con mayor eficiencia,
+precisión y autonomía en la toma de decisiones.
+</p>
 
-Ecosistema  
-NYX OS → cerebro  
-
-NYX CORE → cuerpo físico  
-
-Construyendo la infraestructura de inteligencia global para la próxima generación.  
-
-Visión  
-Construir la infraestructura de inteligencia global que permita a individuos y organizaciones operar con mayor eficiencia, precisión y autonomía en la toma de decisiones.  
-
-Misión  
-Desarrollar tecnología que redefina la relación entre humanos y sistemas digitales, llevando la inteligencia artificial a un nivel práctico, accesible y universal.  
+<h3>Misión</h3>
+<p>
+Desarrollar tecnología que redefina la relación entre humanos y sistemas digitales,
+llevando la inteligencia artificial a un nivel práctico, accesible y universal.
+</p>
 
   </div>
-</div>
-
-<!-- LOGIN -->
-<div id="login" class="pantalla">
-  <h2>Iniciar sesión</h2>
-  <input placeholder="Correo">
-  <input type="password" placeholder="Contraseña">
-  <button onclick="alert('Acceso simulado')">Entrar</button>
-</div>
-
-<!-- REGISTRO -->
-<div id="registro" class="pantalla">
-  <h2>Registro</h2>
-  <input placeholder="Nombre completo">
-  <input placeholder="Correo">
-  <input placeholder="Celular">
-  <input placeholder="DNI">
-  <input type="date">
-  <input placeholder="Dirección">
-  <input placeholder="Código Postal">
-  <button onclick="alert('Registro completado')">Registrarse</button>
 </div>
 
 <!-- OPERAR -->
@@ -147,12 +199,74 @@ Desarrollar tecnología que redefina la relación entre humanos y sistemas digit
   </div>
 </div>
 
+<!-- INVERTIR -->
+<div id="invertir" class="pantalla">
+  <h2>Invertir</h2>
+  <input id="monto" type="number" placeholder="Monto">
+  <button onclick="invertir()">Invertir</button>
+  <p id="resultado"></p>
+</div>
+
+<!-- TRANSFERIR -->
+<div id="transferir" class="pantalla">
+  <h2>Transferir</h2>
+
+  <div class="card">
+    <h3>Criptos</h3>
+    <select>
+      <option>BTC</option>
+      <option>ETH</option>
+      <option>USDT</option>
+    </select>
+  </div>
+
+  <div class="card">
+    <h3>Moneda Local</h3>
+    <select>
+      <option>USA</option>
+      <option>Perú</option>
+      <option>México</option>
+    </select>
+  </div>
+</div>
+
+<!-- ENVIAR -->
+<div id="enviar" class="pantalla">
+  <h2>Enviar dinero</h2>
+  <input id="cuenta" placeholder="Cuenta">
+  <button onclick="enviar()">Enviar</button>
+  <p id="mensaje"></p>
+</div>
+
+<!-- LOGIN -->
+<div id="login" class="pantalla">
+  <h2>Login</h2>
+  <input placeholder="Correo">
+  <input type="password" placeholder="Contraseña">
+  <button onclick="alert('Login simulado')">Entrar</button>
+</div>
+
+<!-- REGISTRO -->
+<div id="registro" class="pantalla">
+  <h2>Registro</h2>
+  <input placeholder="Nombre completo">
+  <input placeholder="Correo">
+  <input placeholder="Celular">
+  <input placeholder="DNI">
+  <input type="date">
+  <input placeholder="Dirección">
+  <input placeholder="Código Postal">
+  <button onclick="alert('Registro completo')">Registrarse</button>
+</div>
+
 </div>
 
 <!-- MENU -->
 <div class="menu">
   <button onclick="mostrar('inicio')">Inicio</button>
   <button onclick="mostrar('operar')">Operar</button>
+  <button onclick="mostrar('invertir')">Invertir</button>
+  <button onclick="mostrar('transferir')">Transferir</button>
 </div>
 
 <script>
@@ -161,25 +275,37 @@ function mostrar(id){
   document.getElementById(id).classList.add('active');
 }
 
-/* BASE */
-let gold = 4992;
-let nasdaq = 23898.15;
-let liquidez = 89450;
+function formato(n){
+  return n.toLocaleString('en-US',{minimumFractionDigits:2});
+}
 
-/* MOVIMIENTO REALISTA */
+let gold=4992;
+let nasdaq=23898.15;
+let liquidez=89567.65;
+
 function actualizar(){
-  gold += (Math.random()-0.5)*8;
-  nasdaq += (Math.random()-0.5)*40;
-  liquidez += (Math.random()-0.4)*150;
+  gold += (Math.random()-0.5)*5;
+  nasdaq += (Math.random()-0.5)*30;
+  liquidez += (Math.random()-0.5)*100;
 
-  document.getElementById("gold").innerText = "$"+gold.toFixed(2);
-  document.getElementById("nasdaq").innerText = nasdaq.toFixed(2);
-  document.getElementById("liquidez").innerText =
-    "NYX Global Liquidity: $" + liquidez.toFixed(2);
+  document.getElementById("gold").innerText="$"+formato(gold);
+  document.getElementById("nasdaq").innerText=formato(nasdaq);
+  document.getElementById("liquidez").innerText="NYX Global Liquidity: $"+formato(liquidez);
 }
 
 setInterval(actualizar,2000);
 actualizar();
+
+function invertir(){
+  let m=document.getElementById("monto").value;
+  if(m>0){
+    document.getElementById("resultado").innerText="Ganancia diaria: $"+formato(m*0.005);
+  }
+}
+
+function enviar(){
+  document.getElementById("mensaje").innerText="Operación bloqueada.";
+}
 
 setTimeout(()=>{
   document.getElementById("loader").style.display="none";
