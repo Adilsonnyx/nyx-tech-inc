@@ -30,6 +30,13 @@ button {
 
 .card { border:1px solid #333; padding:20px; margin-top:15px; background:#0a0a0a; }
 
+.ceo {
+  border:1px solid red;
+  padding:25px;
+  margin-top:30px;
+  line-height:1.7;
+}
+
 input, select {
   width:95%;
   margin:10px auto;
@@ -56,6 +63,7 @@ input, select {
   background:linear-gradient(to top, red, transparent);
   animation:move 2s infinite alternate;
 }
+
 @keyframes move {
   from {transform:scaleY(0.5);}
   to {transform:scaleY(1);}
@@ -85,6 +93,60 @@ input, select {
 <div id="inicio" class="pantalla active">
   <img src="logo.png" class="logo">
   <h2 id="liquidez" style="text-align:center;"></h2>
+
+  <div class="ceo">
+
+<h1>NYX TECH INC.</h1>
+<p><strong>(Neural Yielding eXecution)</strong></p>
+
+<p><i>“NYX OS is the intelligence layer powering decisions across individuals and enterprises worldwide.”</i></p>
+
+<hr>
+
+<h2>ADILSON SMITH</h2>
+<p><strong>CEO & Fundador – NYX Tech Inc.</strong></p>
+
+<p>
+CEO y fundador de NYX Tech Inc, enfocado en el desarrollo de tecnología avanzada e inteligencia digital.
+Lidero la creación de soluciones innovadoras que buscan transformar la forma en que las personas y empresas toman decisiones.
+</p>
+
+<hr>
+
+<p><strong>📍 Ubicación:</strong> EE.UU, NEW YORK</p>
+<p><strong>💼 Cargo:</strong> CEO & Fundador</p>
+<p><strong>🏢 Empresa:</strong> NYX Tech Inc.</p>
+<p><strong>📧 Email:</strong> Adilsonsmithhq@gmail.com</p>
+<p><strong>📱 Teléfono:</strong> +21984594024</p>
+<p><strong>🌐 Web:</strong> https://adilsonnyx.github.io/nyx-tech-inc/</p>
+
+<hr>
+
+<h3>Sobre la empresa</h3>
+<p>
+Fundador de NYX Tech Inc., empresa enfocada en el desarrollo de sistemas inteligentes (NYX OS).
+Liderazgo en estrategia, innovación y crecimiento tecnológico.
+</p>
+
+<h3>Ecosistema</h3>
+<p>NYX OS → cerebro</p>
+<p>NYX CORE → cuerpo físico</p>
+
+<p><strong>Construyendo la infraestructura de inteligencia global para la próxima generación.</strong></p>
+
+<h3>Visión</h3>
+<p>
+Construir la infraestructura de inteligencia global que permita a individuos y organizaciones operar con mayor eficiencia,
+precisión y autonomía en la toma de decisiones.
+</p>
+
+<h3>Misión</h3>
+<p>
+Desarrollar tecnología que redefina la relación entre humanos y sistemas digitales,
+llevando la inteligencia artificial a un nivel práctico, accesible y universal.
+</p>
+
+  </div>
 </div>
 
 <!-- OPERAR -->
@@ -137,15 +199,13 @@ input, select {
 <div id="enviar" class="pantalla">
   <h2>Enviar dinero</h2>
 
-  <label>País</label>
   <select id="pais" onchange="cargarBancos()">
     <option value="">Seleccionar país</option>
-    <option value="latam">🌎 Latinoamérica</option>
-    <option value="usa">🇺🇸 Estados Unidos</option>
-    <option value="europa">🇪🇺 Europa</option>
+    <option value="latam">Latinoamérica</option>
+    <option value="usa">Estados Unidos</option>
+    <option value="europa">Europa</option>
   </select>
 
-  <label>Banco</label>
   <select id="banco">
     <option>Selecciona país</option>
   </select>
@@ -155,24 +215,6 @@ input, select {
   <button onclick="enviarDinero()">Enviar</button>
 
   <p id="mensaje"></p>
-</div>
-
-<!-- LOGIN -->
-<div id="login" class="pantalla">
-  <h2>Login</h2>
-  <input placeholder="Correo">
-  <input type="password" placeholder="Contraseña">
-  <button>Entrar</button>
-</div>
-
-<!-- REGISTRO -->
-<div id="registro" class="pantalla">
-  <h2>Registro</h2>
-  <input placeholder="Nombre">
-  <input placeholder="Correo">
-  <input placeholder="Celular">
-  <input placeholder="DNI">
-  <button>Registrar</button>
 </div>
 
 </div>
@@ -206,61 +248,55 @@ function actualizar(){
 
   document.getElementById("gold").innerText="$"+formato(gold);
   document.getElementById("nasdaq").innerText=formato(nasdaq);
-  document.getElementById("liquidez").innerText="NYX Liquidity: $"+formato(liquidez);
+  document.getElementById("liquidez").innerText="NYX Global Liquidity: $"+formato(liquidez);
 }
 
 setInterval(actualizar,2000);
 actualizar();
 
-/* invertir */
-function invertir(){
-  let m=document.getElementById("monto").value;
-  document.getElementById("resultado").innerText="Ganancia: $"+formato(m*1.2);
-}
-function plan(m){
-  alert("Invertiste $" + formato(m));
-}
-
-/* bancos por secciones */
 const bancos = {
-  latam: [
+  latam:[
     {grupo:"Perú", lista:["BCP","BBVA Perú","Interbank"]},
-    {grupo:"Argentina", lista:["Banco Nación","Galicia","Santander"]},
-    {grupo:"México", lista:["BBVA México","Banorte","HSBC"]}
+    {grupo:"Argentina", lista:["Banco Nación","Galicia","Santander"]}
   ],
-  usa: [
-    {grupo:"Estados Unidos", lista:["Chase","Bank of America","Wells Fargo"]}
+  usa:[
+    {grupo:"USA", lista:["Chase","Bank of America","Wells Fargo"]}
   ],
-  europa: [
-    {grupo:"España", lista:["Santander","BBVA","CaixaBank"]},
-    {grupo:"Alemania", lista:["Deutsche Bank","Commerzbank"]}
+  europa:[
+    {grupo:"España", lista:["Santander","BBVA","CaixaBank"]}
   ]
 };
 
 function cargarBancos(){
   let pais=document.getElementById("pais").value;
   let select=document.getElementById("banco");
-
   select.innerHTML="";
 
-  if(!pais) return;
+  bancos[pais].forEach(g=>{
+    let group=document.createElement("optgroup");
+    group.label=g.grupo;
 
-  bancos[pais].forEach(grupo=>{
-    let optgroup=document.createElement("optgroup");
-    optgroup.label=grupo.grupo;
-
-    grupo.lista.forEach(b=>{
+    g.lista.forEach(b=>{
       let op=document.createElement("option");
       op.text=b;
-      optgroup.appendChild(op);
+      group.appendChild(op);
     });
 
-    select.appendChild(optgroup);
+    select.appendChild(group);
   });
 }
 
 function enviarDinero(){
-  document.getElementById("mensaje").innerText="Transferencia procesada ✔";
+  document.getElementById("mensaje").innerText="Transferencia enviada ✔";
+}
+
+function invertir(){
+  let m=document.getElementById("monto").value;
+  document.getElementById("resultado").innerText="Ganancia: $"+formato(m*1.2);
+}
+
+function plan(m){
+  alert("Invertiste $" + formato(m));
 }
 
 setTimeout(()=>{
