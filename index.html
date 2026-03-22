@@ -8,42 +8,34 @@
 <style>
 body { margin:0; background:black; color:white; font-family:Arial; }
 
-/* LOADING */
 #loader { position:fixed; width:100%; height:100vh; display:flex; justify-content:center; align-items:center; background:black; }
 #loader h1 { color:red; }
 
-/* APP */
 #app { display:none; }
 
-/* TOP */
 .topbar { display:flex; justify-content:space-between; padding:15px; border-bottom:1px solid #222; }
-.left, .right { display:flex; gap:10px; }
+.left,.right { display:flex; gap:10px; }
+
 button { background:none; border:1px solid red; color:red; padding:5px 10px; cursor:pointer; }
 
-/* PANTALLAS */
 .pantalla { display:none; padding:20px; padding-bottom:80px; }
 .active { display:block; }
 
-/* LOGO */
 .logo { width:600px; display:block; margin:40px auto; }
 
-/* CARD */
 .card { border:1px solid #333; padding:20px; margin-top:10px; background:#0a0a0a; }
 
-/* CEO */
-.ceo { border:1px solid red; padding:20px; margin-top:30px; }
+.ceo { border:1px solid red; padding:20px; margin-top:30px; line-height:1.6; }
 
-/* MENU */
 .menu { position:fixed; bottom:0; width:100%; display:flex; justify-content:space-around; padding:10px; border-top:1px solid #222; background:black; }
 
-/* INPUT */
 input, select { display:block; width:90%; margin:10px auto; padding:10px; background:black; border:1px solid #333; color:white; }
 
-/* FORM */
-.form { max-width:400px; margin:auto; text-align:center; }
-
-/* CHART */
-.chart { height:100px; background:linear-gradient(to top, red, transparent); animation: move 2s infinite alternate; }
+.chart {
+  height:100px;
+  background:linear-gradient(to top, red, transparent);
+  animation: move 2s infinite alternate;
+}
 @keyframes move { from {transform:scaleY(0.5);} to {transform:scaleY(1);} }
 </style>
 </head>
@@ -70,49 +62,72 @@ input, select { display:block; width:90%; margin:10px auto; padding:10px; backgr
 <!-- INICIO -->
 <div id="inicio" class="pantalla active">
   <img src="./logo.png" class="logo">
-  <h2 style="text-align:center;">NYX Global Liquidity: $89,450.58</h2>
+
+  <h2 id="liquidez" style="text-align:center;"></h2>
 
   <div class="ceo">
-    <h1>NYX TECH INC.</h1>
-    <p><strong>(Neural Yielding eXecution)</strong></p>
 
-    <p><i>“NYX OS is the intelligence layer powering decisions across individuals and enterprises worldwide.”</i></p>
+NYX TECH INC.  
+(Neural Yielding eXecution)  
 
-    <h2>ADILSON SMITH</h2>
-    <p>CEO & Fundador – NYX Tech Inc.</p>
+“NYX OS is the intelligence layer powering decisions across individuals and enterprises worldwide.”  
 
-    <p>📍 Ubicación: EE.UU, New York</p>
-    <p>📧 Adilsonsmithhq@gmail.com</p>
+ADILSON SMITH  
+CEO & Fundador – NYX Tech Inc.  
+
+CEO y fundador de NYX Tech Inc, enfocado en el desarrollo de tecnología avanzada e inteligencia digital. Lidero la creación de soluciones innovadoras que buscan transformar la forma en que las personas y empresas toman decisiones.  
+
+📍 Ubicación: EE.UU, NEW YOR  
+
+💼 Cargo: CEO & Fundador  
+
+🏢 Empresa: NYX Tech Inc.  
+
+📧 Email: (Adilsonsmithhq@gmail.com)  
+
+📱 Teléfono: (+21984594024)  
+
+🌐 Web: (https://adilsonnyx.github.io/nyx-tech-inc/)  
+
+Fundador de NYX Tech Inc., empresa enfocada en el desarrollo de sistemas inteligentes (NYX OS). Liderazgo en estrategia, innovación y crecimiento tecnológico.  
+
+NYX TECH INC.  
+
+Ecosistema  
+NYX OS → cerebro  
+
+NYX CORE → cuerpo físico  
+
+Construyendo la infraestructura de inteligencia global para la próxima generación.  
+
+Visión  
+Construir la infraestructura de inteligencia global que permita a individuos y organizaciones operar con mayor eficiencia, precisión y autonomía en la toma de decisiones.  
+
+Misión  
+Desarrollar tecnología que redefina la relación entre humanos y sistemas digitales, llevando la inteligencia artificial a un nivel práctico, accesible y universal.  
+
   </div>
 </div>
 
 <!-- LOGIN -->
 <div id="login" class="pantalla">
-  <div class="form">
-    <h2>Iniciar sesión</h2>
-
-    <input type="email" placeholder="Correo">
-    <input type="password" placeholder="Contraseña">
-
-    <button onclick="alert('Acceso simulado')">Entrar</button>
-  </div>
+  <h2>Iniciar sesión</h2>
+  <input placeholder="Correo">
+  <input type="password" placeholder="Contraseña">
+  <button onclick="alert('Acceso simulado')">Entrar</button>
 </div>
 
 <!-- REGISTRO -->
 <div id="registro" class="pantalla">
-  <div class="form">
-    <h2>Registro</h2>
-
-    <input placeholder="Nombre completo">
-    <input type="email" placeholder="Correo">
-    <input placeholder="Celular">
-    <input placeholder="DNI / ID">
-    <input type="date" placeholder="Fecha de nacimiento">
-    <input placeholder="Dirección">
-    <input placeholder="Código Postal">
-
-    <button onclick="alert('Registro completado')">Registrarse</button>
-  </div>
+  <h2>Registro</h2>
+  <input placeholder="Nombre completo">
+  <input placeholder="Correo">
+  <input placeholder="Celular">
+  <input placeholder="DNI">
+  <input type="date">
+  <input placeholder="Dirección">
+  <input placeholder="Código Postal">
+  <button onclick="alert('Registro completado')">Registrarse</button>
 </div>
 
 <!-- OPERAR -->
@@ -132,55 +147,12 @@ input, select { display:block; width:90%; margin:10px auto; padding:10px; backgr
   </div>
 </div>
 
-<!-- INVERTIR -->
-<div id="invertir" class="pantalla">
-  <h2>Invertir</h2>
-  <input id="monto" type="number" placeholder="Monto">
-  <button onclick="invertir()">Invertir</button>
-  <p id="resultado"></p>
-</div>
-
-<!-- TRANSFERIR -->
-<div id="transferir" class="pantalla">
-  <h2>Transferir</h2>
-
-  <div class="card">
-    <h3>Criptos</h3>
-    <select>
-      <option>BTC</option>
-      <option>ETH</option>
-      <option>USDT</option>
-    </select>
-  </div>
-
-  <div class="card">
-    <h3>Moneda Local</h3>
-    <select>
-      <option>USA</option>
-      <option>Perú</option>
-      <option>México</option>
-    </select>
-  </div>
-</div>
-
-<!-- ENVIAR -->
-<div id="enviar" class="pantalla">
-  <h2>Enviar dinero</h2>
-
-  <input id="cuenta" placeholder="Cuenta">
-  <button onclick="enviar()">Enviar</button>
-
-  <p id="mensaje"></p>
-</div>
-
 </div>
 
 <!-- MENU -->
 <div class="menu">
   <button onclick="mostrar('inicio')">Inicio</button>
   <button onclick="mostrar('operar')">Operar</button>
-  <button onclick="mostrar('invertir')">Invertir</button>
-  <button onclick="mostrar('transferir')">Transferir</button>
 </div>
 
 <script>
@@ -189,25 +161,25 @@ function mostrar(id){
   document.getElementById(id).classList.add('active');
 }
 
-function invertir(){
-  let m=document.getElementById("monto").value;
-  if(m>0){
-    document.getElementById("resultado").innerText="Ganancia diaria: $"+(m*0.005).toFixed(2);
-  }
+/* BASE */
+let gold = 4992;
+let nasdaq = 23898.15;
+let liquidez = 89450;
+
+/* MOVIMIENTO REALISTA */
+function actualizar(){
+  gold += (Math.random()-0.5)*8;
+  nasdaq += (Math.random()-0.5)*40;
+  liquidez += (Math.random()-0.4)*150;
+
+  document.getElementById("gold").innerText = "$"+gold.toFixed(2);
+  document.getElementById("nasdaq").innerText = nasdaq.toFixed(2);
+  document.getElementById("liquidez").innerText =
+    "NYX Global Liquidity: $" + liquidez.toFixed(2);
 }
 
-function enviar(){
-  let c=document.getElementById("cuenta").value;
-  if(c.length>5){
-    document.getElementById("mensaje").innerText="Operación bloqueada.";
-  }
-}
-
-function precios(){
-  document.getElementById("gold").innerText="$"+(2100+Math.random()*50).toFixed(2);
-  document.getElementById("nasdaq").innerText=(18000+Math.random()*300).toFixed(0);
-}
-setInterval(precios,2000); precios();
+setInterval(actualizar,2000);
+actualizar();
 
 setTimeout(()=>{
   document.getElementById("loader").style.display="none";
