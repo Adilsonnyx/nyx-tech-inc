@@ -6,202 +6,172 @@
 <title>NYX Tech Inc.</title>
 
 <style>
-body {
-  margin: 0;
-  background: black;
-  color: white;
-  font-family: Arial;
-}
+body { margin:0; background:black; color:white; font-family:Arial; }
 
 /* LOADING */
-#loader {
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  background: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#loader h1 {
-  color: red;
-  letter-spacing: 10px;
-}
+#loader { position:fixed; width:100%; height:100vh; display:flex; justify-content:center; align-items:center; background:black; }
+#loader h1 { color:red; }
 
 /* APP */
-#app {
-  display: none;
-}
+#app { display:none; }
 
 /* TOP */
-.topbar {
-  display: flex;
-  justify-content: space-around;
-  padding: 15px;
-  border-bottom: 1px solid #222;
-}
-
-.topbar button {
-  background: none;
-  border: none;
-  color: red;
-}
+.topbar { display:flex; justify-content:space-between; padding:15px; border-bottom:1px solid #222; }
+.left, .right { display:flex; gap:10px; }
+button { background:none; border:1px solid red; color:red; padding:5px 10px; cursor:pointer; }
 
 /* PANTALLAS */
-.pantalla {
-  display: none;
-  padding: 20px;
-  padding-bottom: 80px;
-}
-
-.active {
-  display: block;
-}
+.pantalla { display:none; padding:20px; padding-bottom:80px; }
+.active { display:block; }
 
 /* LOGO */
-.logo {
-  width: 600px;
-  display: block;
-  margin: 40px auto;
-}
+.logo { width:600px; display:block; margin:40px auto; }
 
-/* CARDS */
-.card {
-  border: 1px solid #333;
-  padding: 20px;
-  margin-top: 10px;
-  background: #0a0a0a;
-}
+/* CARD */
+.card { border:1px solid #333; padding:20px; margin-top:10px; background:#0a0a0a; }
 
 /* CEO */
-.ceo {
-  border: 1px solid red;
-  padding: 20px;
-  margin-top: 30px;
-  background: #0a0a0a;
-  text-align: center;
-}
-
-/* INPUT */
-input, select {
-  padding: 10px;
-  margin-top: 10px;
-}
+.ceo { border:1px solid red; padding:20px; margin-top:30px; }
 
 /* MENU */
-.menu {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  padding: 10px;
-  border-top: 1px solid #222;
-  background: black;
-}
+.menu { position:fixed; bottom:0; width:100%; display:flex; justify-content:space-around; padding:10px; border-top:1px solid #222; background:black; }
+
+/* INPUT */
+input, select { display:block; width:90%; margin:10px auto; padding:10px; background:black; border:1px solid #333; color:white; }
+
+/* FORM */
+.form { max-width:400px; margin:auto; text-align:center; }
+
+/* CHART */
+.chart { height:100px; background:linear-gradient(to top, red, transparent); animation: move 2s infinite alternate; }
+@keyframes move { from {transform:scaleY(0.5);} to {transform:scaleY(1);} }
 </style>
 </head>
 
 <body>
 
-<!-- LOADING -->
-<div id="loader">
-  <h1>NYX</h1>
-</div>
+<div id="loader"><h1>NYX</h1></div>
 
-<!-- APP -->
 <div id="app">
 
-  <!-- TOP -->
-  <div class="topbar">
+<!-- TOP -->
+<div class="topbar">
+  <div class="left">
     <button onclick="mostrar('transferir')">Transferir</button>
     <button onclick="mostrar('enviar')">Enviar</button>
   </div>
 
-  <!-- INICIO -->
-  <div id="inicio" class="pantalla active">
-    <img src="./logo.png" class="logo">
-    <h2 style="text-align:center;">NYX Global Liquidity: $89,450.58</h2>
+  <div class="right">
+    <button onclick="mostrar('login')">Iniciar sesión</button>
+    <button onclick="mostrar('registro')">Registrarse</button>
+  </div>
+</div>
 
-    <!-- CEO -->
-    <div class="ceo">
-      <h2>CEO & Founder</h2>
-      <p><strong>Adilson Smith Huamán Quispe</strong></p>
-      <p>Founder of NYX Tech Inc. Focused on advanced technology and AI systems.</p>
+<!-- INICIO -->
+<div id="inicio" class="pantalla active">
+  <img src="./logo.png" class="logo">
+  <h2 style="text-align:center;">NYX Global Liquidity: $89,450.58</h2>
 
-      <p>📍 Location: Huancayo, Perú</p>
-      <p>📧 Email: Adilsonsmithhq@gmail.com</p>
-      <p>📱 Phone: +51 984 594 024</p>
-    </div>
+  <div class="ceo">
+    <h1>NYX TECH INC.</h1>
+    <p><strong>(Neural Yielding eXecution)</strong></p>
+
+    <p><i>“NYX OS is the intelligence layer powering decisions across individuals and enterprises worldwide.”</i></p>
+
+    <h2>ADILSON SMITH</h2>
+    <p>CEO & Fundador – NYX Tech Inc.</p>
+
+    <p>📍 Ubicación: EE.UU, New York</p>
+    <p>📧 Adilsonsmithhq@gmail.com</p>
+  </div>
+</div>
+
+<!-- LOGIN -->
+<div id="login" class="pantalla">
+  <div class="form">
+    <h2>Iniciar sesión</h2>
+
+    <input type="email" placeholder="Correo">
+    <input type="password" placeholder="Contraseña">
+
+    <button onclick="alert('Acceso simulado')">Entrar</button>
+  </div>
+</div>
+
+<!-- REGISTRO -->
+<div id="registro" class="pantalla">
+  <div class="form">
+    <h2>Registro</h2>
+
+    <input placeholder="Nombre completo">
+    <input type="email" placeholder="Correo">
+    <input placeholder="Celular">
+    <input placeholder="DNI / ID">
+    <input type="date" placeholder="Fecha de nacimiento">
+    <input placeholder="Dirección">
+    <input placeholder="Código Postal">
+
+    <button onclick="alert('Registro completado')">Registrarse</button>
+  </div>
+</div>
+
+<!-- OPERAR -->
+<div id="operar" class="pantalla">
+  <h2>Operar</h2>
+
+  <div class="card">
+    <h3>GOLD</h3>
+    <p id="gold"></p>
+    <div class="chart"></div>
   </div>
 
-  <!-- OPERAR -->
-  <div id="operar" class="pantalla">
-    <h2>Operar</h2>
-
-    <div class="card">
-      <h3>GOLD (XAUUSD)</h3>
-      <p>Precio: $2,150</p>
-      <div style="height:100px; background:#111;"></div>
-    </div>
-
-    <div class="card">
-      <h3>NASDAQ100</h3>
-      <p>Precio: 18,450</p>
-      <div style="height:100px; background:#111;"></div>
-    </div>
+  <div class="card">
+    <h3>NASDAQ100</h3>
+    <p id="nasdaq"></p>
+    <div class="chart"></div>
   </div>
+</div>
 
-  <!-- INVERTIR -->
-  <div id="invertir" class="pantalla">
-    <h2>Invertir</h2>
+<!-- INVERTIR -->
+<div id="invertir" class="pantalla">
+  <h2>Invertir</h2>
+  <input id="monto" type="number" placeholder="Monto">
+  <button onclick="invertir()">Invertir</button>
+  <p id="resultado"></p>
+</div>
 
-    <p>Rentabilidad: 0.5% diario</p>
+<!-- TRANSFERIR -->
+<div id="transferir" class="pantalla">
+  <h2>Transferir</h2>
 
-    <input id="monto" type="number" placeholder="Ingrese monto">
-
-    <br>
-
-    <button onclick="invertir()" style="background:red; color:black; padding:10px;">
-      Invertir
-    </button>
-
-    <p id="resultado"></p>
-  </div>
-
-  <!-- TRANSFERIR -->
-  <div id="transferir" class="pantalla">
-    <h2>Transferir</h2>
-
-    <div class="card">Criptos</div>
-    <div class="card">Moneda Local</div>
-  </div>
-
-  <!-- ENVIAR -->
-  <div id="enviar" class="pantalla">
-    <h2>Enviar dinero</h2>
-
-    <select id="banco">
-      <option>BBVA</option>
-      <option>BCP</option>
-      <option>Interbank</option>
-      <option>Scotiabank</option>
-      <option>NYX Balance</option>
+  <div class="card">
+    <h3>Criptos</h3>
+    <select>
+      <option>BTC</option>
+      <option>ETH</option>
+      <option>USDT</option>
     </select>
-
-    <br>
-
-    <input id="cuenta" type="text" placeholder="Número de cuenta">
-
-    <br>
-
-    <button onclick="enviar()" style="background:red; padding:10px;">
-      Enviar
-    </button>
-
-    <p id="mensaje"></p>
   </div>
+
+  <div class="card">
+    <h3>Moneda Local</h3>
+    <select>
+      <option>USA</option>
+      <option>Perú</option>
+      <option>México</option>
+    </select>
+  </div>
+</div>
+
+<!-- ENVIAR -->
+<div id="enviar" class="pantalla">
+  <h2>Enviar dinero</h2>
+
+  <input id="cuenta" placeholder="Cuenta">
+  <button onclick="enviar()">Enviar</button>
+
+  <p id="mensaje"></p>
+</div>
 
 </div>
 
@@ -214,39 +184,35 @@ input, select {
 </div>
 
 <script>
-function mostrar(id) {
-  document.querySelectorAll('.pantalla').forEach(p => p.classList.remove('active'));
+function mostrar(id){
+  document.querySelectorAll('.pantalla').forEach(p=>p.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 }
 
-function invertir() {
-  let monto = document.getElementById("monto").value;
-
-  if(monto > 0){
-    let ganancia = monto * 0.005;
-    document.getElementById("resultado").innerText =
-      "Inversión realizada. Ganancia diaria: $" + ganancia.toFixed(2);
-  } else {
-    document.getElementById("resultado").innerText = "Ingrese monto válido";
+function invertir(){
+  let m=document.getElementById("monto").value;
+  if(m>0){
+    document.getElementById("resultado").innerText="Ganancia diaria: $"+(m*0.005).toFixed(2);
   }
 }
 
-function enviar() {
-  let cuenta = document.getElementById("cuenta").value;
-
-  if(cuenta.length > 5){
-    document.getElementById("mensaje").innerText =
-      "Operación bloqueada: no es momento de retirar fondos.";
-  } else {
-    document.getElementById("mensaje").innerText =
-      "Ingrese un número válido.";
+function enviar(){
+  let c=document.getElementById("cuenta").value;
+  if(c.length>5){
+    document.getElementById("mensaje").innerText="Operación bloqueada.";
   }
 }
 
-setTimeout(() => {
-  document.getElementById("loader").style.display = "none";
-  document.getElementById("app").style.display = "block";
-}, 1500);
+function precios(){
+  document.getElementById("gold").innerText="$"+(2100+Math.random()*50).toFixed(2);
+  document.getElementById("nasdaq").innerText=(18000+Math.random()*300).toFixed(0);
+}
+setInterval(precios,2000); precios();
+
+setTimeout(()=>{
+  document.getElementById("loader").style.display="none";
+  document.getElementById("app").style.display="block";
+},1500);
 </script>
 
 </body>
