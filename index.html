@@ -8,33 +8,64 @@
 <style>
 body { margin:0; background:black; color:white; font-family:Arial; }
 
-#loader { position:fixed; width:100%; height:100vh; display:flex; justify-content:center; align-items:center; background:black; }
+#loader {
+  position:fixed;
+  width:100%;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:black;
+}
 #loader h1 { color:red; }
 
 #app { display:none; }
 
-.topbar { display:flex; justify-content:space-between; padding:15px; border-bottom:1px solid #222; }
+.topbar {
+  display:flex;
+  justify-content:space-between;
+  padding:15px;
+  border-bottom:1px solid #222;
+}
 
 button {
   background:none;
   border:1px solid red;
   color:red;
-  padding:5px 10px;
+  padding:6px 12px;
   cursor:pointer;
 }
 
-.pantalla { display:none; padding:20px; padding-bottom:80px; }
+.pantalla {
+  display:none;
+  padding:20px;
+  padding-bottom:80px;
+}
 .active { display:block; }
 
-.logo { width:500px; display:block; margin:40px auto; }
+.logo {
+  width:500px;
+  display:block;
+  margin:40px auto;
+}
 
-.ceo { border:1px solid red; padding:20px; margin-top:30px; line-height:1.6; }
+.ceo {
+  border:1px solid red;
+  padding:20px;
+  margin-top:30px;
+  line-height:1.6;
+}
 
-.card { border:1px solid #333; padding:20px; margin-top:10px; background:#0a0a0a; }
+.card {
+  border:1px solid #333;
+  padding:20px;
+  margin-top:15px;
+  background:#0a0a0a;
+}
 
 input, select {
   display:block;
-  width:90%;
+  width:95%;
   margin:10px auto;
   padding:10px;
   background:black;
@@ -89,12 +120,9 @@ input, select {
   <h2 id="liquidez" style="text-align:center;"></h2>
 
   <div class="ceo">
-
 <h1>NYX TECH INC.</h1>
 <p><strong>(Neural Yielding eXecution)</strong></p>
-
 <p><i>“NYX OS is the intelligence layer powering decisions across individuals and enterprises worldwide.”</i></p>
-
 <hr>
 
 <h2>ADILSON SMITH</h2>
@@ -138,7 +166,6 @@ precisión y autonomía en la toma de decisiones.
 Desarrollar tecnología que redefina la relación entre humanos y sistemas digitales,
 llevando la inteligencia artificial a un nivel práctico, accesible y universal.
 </p>
-
   </div>
 </div>
 
@@ -203,13 +230,6 @@ llevando la inteligencia artificial a un nivel práctico, accesible y universal.
       <option>Chile</option>
       <option>Colombia</option>
       <option>Brasil</option>
-      <option>Canadá</option>
-      <option>Reino Unido</option>
-      <option>Alemania</option>
-      <option>Francia</option>
-      <option>Italia</option>
-      <option>China</option>
-      <option>Japón</option>
     </select>
   </div>
 </div>
@@ -217,8 +237,27 @@ llevando la inteligencia artificial a un nivel práctico, accesible y universal.
 <!-- ENVIAR -->
 <div id="enviar" class="pantalla">
   <h2>Enviar dinero</h2>
-  <input placeholder="Cuenta destino">
-  <button onclick="alert('Operación no disponible')">Enviar</button>
+
+  <label>País</label>
+  <select id="pais" onchange="cargarBancos()">
+    <option value="">Seleccionar</option>
+    <option value="peru">Perú</option>
+    <option value="argentina">Argentina</option>
+    <option value="mexico">México</option>
+    <option value="usa">Estados Unidos</option>
+    <option value="espana">España</option>
+  </select>
+
+  <label>Banco</label>
+  <select id="banco">
+    <option>Selecciona un país</option>
+  </select>
+
+  <input placeholder="Número de cuenta">
+
+  <button onclick="enviarDinero()">Enviar</button>
+
+  <p id="mensaje"></p>
 </div>
 
 <!-- LOGIN -->
@@ -279,6 +318,7 @@ function actualizar(){
 setInterval(actualizar,2000);
 actualizar();
 
+/* INVERTIR */
 function invertir(){
   let m=document.getElementById("monto").value;
   if(m>0){
@@ -288,6 +328,33 @@ function invertir(){
 
 function plan(m){
   alert("Invertiste $" + formato(m) + " → $" + formato(m*1.2));
+}
+
+/* BANCOS */
+const bancos = {
+  peru:["BCP","BBVA","Interbank","Scotiabank"],
+  argentina:["Banco Nación","Galicia","Santander","BBVA"],
+  mexico:["BBVA","Banorte","Santander","HSBC"],
+  usa:["Chase","Bank of America","Wells Fargo","Citibank"],
+  espana:["Santander","BBVA","CaixaBank"]
+};
+
+function cargarBancos(){
+  let pais=document.getElementById("pais").value;
+  let banco=document.getElementById("banco");
+  banco.innerHTML="";
+
+  if(bancos[pais]){
+    bancos[pais].forEach(b=>{
+      let op=document.createElement("option");
+      op.text=b;
+      banco.add(op);
+    });
+  }
+}
+
+function enviarDinero(){
+  document.getElementById("mensaje").innerText="Transferencia en proceso...";
 }
 
 setTimeout(()=>{
