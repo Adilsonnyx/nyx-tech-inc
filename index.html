@@ -6,111 +6,14 @@
 <title>NYX Tech Inc.</title>
 
 <style>
-  nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: black;
-  padding: 15px;
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  border-bottom: 1px solid #111;
-  z-index: 1000;
-}
-
-nav a {
-  color: black;
-  text-decoration: none;
-  font-size: 14px;
-  transition: 0.3s;
-}
-
-nav a:hover {
-  color: red;
-}
-
 body {
-  margin-top: 70px;
-}
-  nav {
-    <nav>
-  <a href="index.html">Home</a>
-  <a href="#products">Products</a>
-  <a href="nyxcore.html">NYX CORE</a>
-  <a href="investors.html">Investors</a>
-  <a href="#contact">Contact</a>
-  <a href="#" onclick="salir()">Exit</a>
-</nav>
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: black;
-  padding: 15px;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  border-bottom: 1px solid #111;
-  z-index: 1000;
-}
-
-nav a {
-  color: black;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-nav a:hover {
-  color: red;
-}
-  a {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 20px;
-  border: 1px solid red;
-  color: red;
-  text-decoration: none;
-}
-
-a:hover {
-  background: red;
-  color: black;
-}
-    <script>
-function salir() {
-  document.body.innerHTML = `
-    <div style="background:black; color:red; height:100vh; display:flex; justify-content:center; align-items:center; flex-direction:column;">
-      <h1>NYX</h1>
-      <p>Session Ended</p>
-    </div>
-  `;
-}
-</script>
-body { body {
-  margin-top: 60px;
-}
   margin: 0;
-  font-family: Arial, sans-serif;
   background: black;
   color: white;
-  text-align: center;
-  overflow-x: hidden;
-}
-.btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 25px;
-  border: 1px solid red;
-  color: red;
-  text-decoration: none;
-  transition: 0.3s;
+  font-family: Arial, sans-serif;
 }
 
-.btn:hover {
-  background: red;
-  color: black;
-}
-/* LOADING SCREEN */
+/* LOADING */
 #loader {
   position: fixed;
   width: 100%;
@@ -124,86 +27,71 @@ body { body {
 
 #loader h1 {
   color: red;
-  font-size: 40px;
   letter-spacing: 10px;
-  animation: fade 2s infinite;
 }
 
-@keyframes fade {
-  0% {opacity: 0.2;}
-  50% {opacity: 1;}
-  100% {opacity: 0.2;}
-}
-
-/* OCULTAR CONTENIDO */
-#content {
+/* OCULTO */
+#app {
   display: none;
 }
 
-/* ANIMACIÓN GENERAL */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(60px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* TOP BAR */
+.topbar {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
+  border-bottom: 1px solid #222;
 }
 
-/* HERO */
-header {
-  padding: 80px 20px;
+.topbar button {
+  background: none;
+  border: none;
+  color: red;
+  font-size: 14px;
 }
 
+/* PANTALLAS */
+.pantalla {
+  display: none;
+  padding: 20px;
+  padding-bottom: 80px;
+}
+
+.active {
+  display: block;
+}
+
+/* LOGO */
 .logo {
-  width: 700px;
-  animation: fadeUp 1s ease;
+  width: 300px;
+  display: block;
+  margin: 40px auto;
 }
 
-h1 {
-  color: red;
-  font-size: 50px;
-  margin: 10px 0;
-  animation: fadeUp 1.5s ease;
-}
-
-.tagline {
-  opacity: 0.7;
-  animation: fadeUp 2s ease;
-}
-
-/* SECCIONES */
-section {
-  padding: 60px 20px;
-  max-width: 900px;
-  margin: auto;
-  animation: fadeUp 2s ease;
-}
-
-h2 {
-  color: red;
-}
-
-/* PRODUCTOS */
+/* CARDS */
 .card {
   border: 1px solid #333;
-  padding: 25px;
-  margin-top: 20px;
+  padding: 20px;
+  margin-top: 10px;
   background: #0a0a0a;
-  transition: 0.3s;
-}
-<a href="nyxcore.html">View NYX CORE</a>
-.card:hover {
-  border-color: red;
-  transform: scale(1.03);
 }
 
-/* FOOTER */
-footer {
-  padding: 40px;
-  opacity: 0.5;
+/* MENU INFERIOR */
+.menu {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  border-top: 1px solid #222;
+  background: black;
+}
+
+.menu button {
+  background: none;
+  border: none;
+  color: white;
 }
 </style>
 </head>
@@ -215,87 +103,72 @@ footer {
   <h1>NYX</h1>
 </div>
 
-<!-- CONTENIDO -->
-<div id="content">
+<!-- APP -->
+<div id="app">
 
-<header>
-  <img src="./logo.png" class="logo">
-  <h1>NYX TECH INC.</h1>
-  <p class="tagline">The Intelligence Layer of the World</p>
-  <a href="#products" class="btn">Explore</a>
-</header>
-
-<section>
-  <h2>About</h2>
-  <p>
-    NYX Tech Inc. is building a new generation of intelligent systems focused on automation,
-    artificial intelligence, and decision-making at a global scale.
-  </p>
-</section>
-
-<section id="products">
-  <h2>Products</h2>
-
-  <div class="card">
-    <h3>NYX OS</h3>
-    <p>AI operating system that automates decisions and enhances productivity.</p>
+  <!-- TOP -->
+  <div class="topbar">
+    <button onclick="mostrar('transferir')">Transferir</button>
+    <button onclick="mostrar('enviar')">Enviar</button>
   </div>
 
-  <div class="card">
-    <h3>NYX CORE</h3>
-    <section id="products">
-  <h2>NYX CORE</h2>
+  <!-- INICIO -->
+  <div id="inicio" class="pantalla active">
+    <img src="./logo.png" class="logo">
+    <h2 style="text-align:center;">Balance: $12,450</h2>
+  </div>
 
-  <p style="max-width:600px; margin:auto;">
-    A new category of physical intelligence device.  
-    Designed to bring autonomous decision-making into the real world.
-  </p>
+  <!-- TRANSFERIR -->
+  <div id="transferir" class="pantalla">
+    <h2>Transferir dinero</h2>
+    <div class="card">Criptos</div>
+    <div class="card">Moneda Local</div>
+  </div>
 
-  <br>
+  <!-- ENVIAR -->
+  <div id="enviar" class="pantalla">
+    <h2>Enviar dinero</h2>
+    <div class="card">BBVA</div>
+    <div class="card">BCP</div>
+    <div class="card">Interbank</div>
+    <div class="card">Scotiabank</div>
+    <div class="card">NYX Balance</div>
+  </div>
 
-  <a href="nyxcore.html" class="btn">Discover NYX CORE</a>
-</section>
-</section>
+  <!-- OPERAR -->
+  <div id="operar" class="pantalla">
+    <h2>Operar</h2>
+    <p>Automatización con NYX OS</p>
+  </div>
 
-<section>
-  <h2>Mission</h2>
-  <p>
-    To create intelligent systems that simplify decision-making and empower individuals and enterprises worldwide.
-  </p>
-</section>
-
-<section>
-  <h2>Vision</h2>
-  <p>
-    To become the global intelligence infrastructure powering the future of decisions.
-  </p>
-</section>
-
-<section>
-  <h2>Founder</h2>
-  <p><strong>Adilson Smith Huamán Quispe</strong></p>
-  <p>CEO & Founder – NYX Tech Inc.</p>
-  <section id="contact">
-  <h2>Contact</h2>
-  <p>Email: Adilsonsmithhq@gmail.com</p>
-
-  <a href="mailto:Adilsonsmithhq@gmail.com" class="btn">
-    Send Email
-  </a>
-</section>
-</section>
-
-<footer>
-  <p>NYX Tech Inc. © 2026 — All rights reserved</p>
-</footer>
+  <!-- INVERTIR -->
+  <div id="invertir" class="pantalla">
+    <h2>Invertir</h2>
+    <p>Acciones y crecimiento</p>
+  </div>
 
 </div>
 
+<!-- MENU ABAJO -->
+<div class="menu">
+  <button onclick="mostrar('inicio')">Inicio</button>
+  <button onclick="mostrar('operar')">Operar</button>
+  <button onclick="mostrar('invertir')">Invertir</button>
+  <button onclick="mostrar('transferir')">Transferir</button>
+</div>
+
 <script>
+/* CAMBIAR PANTALLAS */
+function mostrar(id) {
+  document.querySelectorAll('.pantalla').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+/* LOADING */
 setTimeout(() => {
   document.getElementById("loader").style.display = "none";
-  document.getElementById("content").style.display = "block";
-}, 2000);
+  document.getElementById("app").style.display = "block";
+}, 1500);
 </script>
 
 </body>
