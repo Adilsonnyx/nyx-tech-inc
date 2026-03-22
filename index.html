@@ -10,7 +10,7 @@ body {
   margin: 0;
   background: black;
   color: white;
-  font-family: Arial, sans-serif;
+  font-family: Arial;
 }
 
 /* LOADING */
@@ -22,7 +22,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999;
 }
 
 #loader h1 {
@@ -30,12 +29,12 @@ body {
   letter-spacing: 10px;
 }
 
-/* OCULTO */
+/* APP */
 #app {
   display: none;
 }
 
-/* TOP BAR */
+/* TOP */
 .topbar {
   display: flex;
   justify-content: space-around;
@@ -47,7 +46,6 @@ body {
   background: none;
   border: none;
   color: red;
-  font-size: 14px;
 }
 
 /* PANTALLAS */
@@ -63,7 +61,7 @@ body {
 
 /* LOGO */
 .logo {
-  width: 900px;
+  width: 600px;
   display: block;
   margin: 40px auto;
 }
@@ -76,7 +74,22 @@ body {
   background: #0a0a0a;
 }
 
-/* MENU INFERIOR */
+/* CEO */
+.ceo {
+  border: 1px solid red;
+  padding: 20px;
+  margin-top: 30px;
+  background: #0a0a0a;
+  text-align: center;
+}
+
+/* INPUT */
+input, select {
+  padding: 10px;
+  margin-top: 10px;
+}
+
+/* MENU */
 .menu {
   position: fixed;
   bottom: 0;
@@ -86,12 +99,6 @@ body {
   padding: 10px;
   border-top: 1px solid #222;
   background: black;
-}
-
-.menu button {
-  background: none;
-  border: none;
-  color: white;
 }
 </style>
 </head>
@@ -115,12 +122,58 @@ body {
   <!-- INICIO -->
   <div id="inicio" class="pantalla active">
     <img src="./logo.png" class="logo">
-    <h2 style="text-align:center;">Balance: $89,450.58</h2>
+    <h2 style="text-align:center;">NYX Global Liquidity: $89,450.58</h2>
+
+    <!-- CEO -->
+    <div class="ceo">
+      <h2>CEO & Founder</h2>
+      <p><strong>Adilson Smith Huamán Quispe</strong></p>
+      <p>Founder of NYX Tech Inc. Focused on advanced technology and AI systems.</p>
+
+      <p>📍 Location: Huancayo, Perú</p>
+      <p>📧 Email: Adilsonsmithhq@gmail.com</p>
+      <p>📱 Phone: +51 984 594 024</p>
+    </div>
+  </div>
+
+  <!-- OPERAR -->
+  <div id="operar" class="pantalla">
+    <h2>Operar</h2>
+
+    <div class="card">
+      <h3>GOLD (XAUUSD)</h3>
+      <p>Precio: $2,150</p>
+      <div style="height:100px; background:#111;"></div>
+    </div>
+
+    <div class="card">
+      <h3>NASDAQ100</h3>
+      <p>Precio: 18,450</p>
+      <div style="height:100px; background:#111;"></div>
+    </div>
+  </div>
+
+  <!-- INVERTIR -->
+  <div id="invertir" class="pantalla">
+    <h2>Invertir</h2>
+
+    <p>Rentabilidad: 0.5% diario</p>
+
+    <input id="monto" type="number" placeholder="Ingrese monto">
+
+    <br>
+
+    <button onclick="invertir()" style="background:red; color:black; padding:10px;">
+      Invertir
+    </button>
+
+    <p id="resultado"></p>
   </div>
 
   <!-- TRANSFERIR -->
   <div id="transferir" class="pantalla">
-    <h2>Transferir dinero</h2>
+    <h2>Transferir</h2>
+
     <div class="card">Criptos</div>
     <div class="card">Moneda Local</div>
   </div>
@@ -128,28 +181,31 @@ body {
   <!-- ENVIAR -->
   <div id="enviar" class="pantalla">
     <h2>Enviar dinero</h2>
-    <div class="card">BBVA</div>
-    <div class="card">BCP</div>
-    <div class="card">Interbank</div>
-    <div class="card">Scotiabank</div>
-    <div class="card">NYX Balance</div>
-  </div>
 
-  <!-- OPERAR -->
-  <div id="operar" class="pantalla">
-    <h2>Operar</h2>
-    <p>Automatización con NYX OS</p>
-  </div>
+    <select id="banco">
+      <option>BBVA</option>
+      <option>BCP</option>
+      <option>Interbank</option>
+      <option>Scotiabank</option>
+      <option>NYX Balance</option>
+    </select>
 
-  <!-- INVERTIR -->
-  <div id="invertir" class="pantalla">
-    <h2>Invertir</h2>
-    <p>Acciones y crecimiento</p>
+    <br>
+
+    <input id="cuenta" type="text" placeholder="Número de cuenta">
+
+    <br>
+
+    <button onclick="enviar()" style="background:red; padding:10px;">
+      Enviar
+    </button>
+
+    <p id="mensaje"></p>
   </div>
 
 </div>
 
-<!-- MENU ABAJO -->
+<!-- MENU -->
 <div class="menu">
   <button onclick="mostrar('inicio')">Inicio</button>
   <button onclick="mostrar('operar')">Operar</button>
@@ -158,13 +214,35 @@ body {
 </div>
 
 <script>
-/* CAMBIAR PANTALLAS */
 function mostrar(id) {
   document.querySelectorAll('.pantalla').forEach(p => p.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 }
 
-/* LOADING */
+function invertir() {
+  let monto = document.getElementById("monto").value;
+
+  if(monto > 0){
+    let ganancia = monto * 0.005;
+    document.getElementById("resultado").innerText =
+      "Inversión realizada. Ganancia diaria: $" + ganancia.toFixed(2);
+  } else {
+    document.getElementById("resultado").innerText = "Ingrese monto válido";
+  }
+}
+
+function enviar() {
+  let cuenta = document.getElementById("cuenta").value;
+
+  if(cuenta.length > 5){
+    document.getElementById("mensaje").innerText =
+      "Operación bloqueada: no es momento de retirar fondos.";
+  } else {
+    document.getElementById("mensaje").innerText =
+      "Ingrese un número válido.";
+  }
+}
+
 setTimeout(() => {
   document.getElementById("loader").style.display = "none";
   document.getElementById("app").style.display = "block";
