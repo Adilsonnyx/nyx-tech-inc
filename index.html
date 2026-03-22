@@ -8,28 +8,13 @@
 <style>
 body { margin:0; background:black; color:white; font-family:Arial; }
 
-/* LOADER */
-#loader {
-  position:fixed;
-  width:100%;
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background:black;
-}
+#loader { position:fixed; width:100%; height:100vh; display:flex; justify-content:center; align-items:center; background:black; }
 #loader h1 { color:red; }
 
-/* APP */
 #app { display:none; }
 
-/* TOP */
-.topbar {
-  display:flex;
-  justify-content:space-between;
-  padding:15px;
-  border-bottom:1px solid #222;
-}
+.topbar { display:flex; justify-content:space-between; padding:15px; border-bottom:1px solid #222; }
+
 button {
   background:none;
   border:1px solid red;
@@ -38,38 +23,15 @@ button {
   cursor:pointer;
 }
 
-/* PANTALLAS */
-.pantalla {
-  display:none;
-  padding:20px;
-  padding-bottom:80px;
-}
+.pantalla { display:none; padding:20px; padding-bottom:80px; }
 .active { display:block; }
 
-/* LOGO */
-.logo {
-  width:500px;
-  display:block;
-  margin:40px auto;
-}
+.logo { width:500px; display:block; margin:40px auto; }
 
-/* CEO */
-.ceo {
-  border:1px solid red;
-  padding:20px;
-  margin-top:30px;
-  line-height:1.6;
-}
+.ceo { border:1px solid red; padding:20px; margin-top:30px; line-height:1.6; }
 
-/* CARD */
-.card {
-  border:1px solid #333;
-  padding:20px;
-  margin-top:10px;
-  background:#0a0a0a;
-}
+.card { border:1px solid #333; padding:20px; margin-top:10px; background:#0a0a0a; }
 
-/* INPUT */
 input, select {
   display:block;
   width:90%;
@@ -80,7 +42,6 @@ input, select {
   color:white;
 }
 
-/* MENU */
 .menu {
   position:fixed;
   bottom:0;
@@ -92,7 +53,6 @@ input, select {
   background:black;
 }
 
-/* GRAFICO */
 .chart {
   height:100px;
   background:linear-gradient(to top, red, transparent);
@@ -202,9 +162,21 @@ llevando la inteligencia artificial a un nivel práctico, accesible y universal.
 <!-- INVERTIR -->
 <div id="invertir" class="pantalla">
   <h2>Invertir</h2>
-  <input id="monto" type="number" placeholder="Monto">
-  <button onclick="invertir()">Invertir</button>
+
+  <input id="monto" type="number" placeholder="Monto personalizado">
+  <button onclick="invertir()">Invertir manual</button>
   <p id="resultado"></p>
+
+  <h3>Planes (20% mensual)</h3>
+
+  <div class="card">
+    <button onclick="plan(300)">$300 → $360</button><br><br>
+    <button onclick="plan(500)">$500 → $600</button><br><br>
+    <button onclick="plan(1000)">$1,000 → $1,200</button><br><br>
+    <button onclick="plan(2000)">$2,000 → $2,400</button><br><br>
+    <button onclick="plan(5000)">$5,000 → $6,000</button><br><br>
+    <button onclick="plan(10000)">$10,000 → $12,000</button>
+  </div>
 </div>
 
 <!-- TRANSFERIR -->
@@ -223,9 +195,21 @@ llevando la inteligencia artificial a un nivel práctico, accesible y universal.
   <div class="card">
     <h3>Moneda Local</h3>
     <select>
-      <option>USA</option>
+      <option>Estados Unidos</option>
       <option>Perú</option>
       <option>México</option>
+      <option>España</option>
+      <option>Argentina</option>
+      <option>Chile</option>
+      <option>Colombia</option>
+      <option>Brasil</option>
+      <option>Canadá</option>
+      <option>Reino Unido</option>
+      <option>Alemania</option>
+      <option>Francia</option>
+      <option>Italia</option>
+      <option>China</option>
+      <option>Japón</option>
     </select>
   </div>
 </div>
@@ -233,9 +217,8 @@ llevando la inteligencia artificial a un nivel práctico, accesible y universal.
 <!-- ENVIAR -->
 <div id="enviar" class="pantalla">
   <h2>Enviar dinero</h2>
-  <input id="cuenta" placeholder="Cuenta">
-  <button onclick="enviar()">Enviar</button>
-  <p id="mensaje"></p>
+  <input placeholder="Cuenta destino">
+  <button onclick="alert('Operación no disponible')">Enviar</button>
 </div>
 
 <!-- LOGIN -->
@@ -276,17 +259,17 @@ function mostrar(id){
 }
 
 function formato(n){
-  return n.toLocaleString('en-US',{minimumFractionDigits:2});
+  return n.toLocaleString('en-US',{minimumFractionDigits:2, maximumFractionDigits:2});
 }
 
 let gold=4992;
 let nasdaq=23898.15;
-let liquidez=89567.65;
+let liquidez=89456.67;
 
 function actualizar(){
   gold += (Math.random()-0.5)*5;
   nasdaq += (Math.random()-0.5)*30;
-  liquidez += (Math.random()-0.5)*100;
+  liquidez += (Math.random()-0.5)*50;
 
   document.getElementById("gold").innerText="$"+formato(gold);
   document.getElementById("nasdaq").innerText=formato(nasdaq);
@@ -299,12 +282,12 @@ actualizar();
 function invertir(){
   let m=document.getElementById("monto").value;
   if(m>0){
-    document.getElementById("resultado").innerText="Ganancia diaria: $"+formato(m*0.005);
+    document.getElementById("resultado").innerText="Retorno mensual: $"+formato(m*1.2);
   }
 }
 
-function enviar(){
-  document.getElementById("mensaje").innerText="Operación bloqueada.";
+function plan(m){
+  alert("Invertiste $" + formato(m) + " → $" + formato(m*1.2));
 }
 
 setTimeout(()=>{
