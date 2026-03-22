@@ -8,25 +8,12 @@
 <style>
 body { margin:0; background:black; color:white; font-family:Arial; }
 
-#loader {
-  position:fixed;
-  width:100%;
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background:black;
-}
+#loader { position:fixed; width:100%; height:100vh; display:flex; justify-content:center; align-items:center; background:black; }
 #loader h1 { color:red; }
 
 #app { display:none; }
 
-.topbar {
-  display:flex;
-  justify-content:space-between;
-  padding:15px;
-  border-bottom:1px solid #222;
-}
+.topbar { display:flex; justify-content:space-between; padding:15px; border-bottom:1px solid #222; }
 
 button {
   background:none;
@@ -36,38 +23,18 @@ button {
   cursor:pointer;
 }
 
-.pantalla {
-  display:none;
-  padding:20px;
-  padding-bottom:80px;
-}
+.pantalla { display:none; padding:20px; padding-bottom:80px; }
 .active { display:block; }
 
-.logo {
-  width:500px;
-  display:block;
-  margin:40px auto;
-}
+.logo { width:500px; display:block; margin:40px auto; }
 
-.ceo {
-  border:1px solid red;
-  padding:20px;
-  margin-top:30px;
-  line-height:1.6;
-}
-
-.card {
-  border:1px solid #333;
-  padding:20px;
-  margin-top:15px;
-  background:#0a0a0a;
-}
+.card { border:1px solid #333; padding:20px; margin-top:15px; background:#0a0a0a; }
 
 input, select {
-  display:block;
   width:95%;
   margin:10px auto;
   padding:10px;
+  display:block;
   background:black;
   border:1px solid #333;
   color:white;
@@ -118,55 +85,6 @@ input, select {
 <div id="inicio" class="pantalla active">
   <img src="logo.png" class="logo">
   <h2 id="liquidez" style="text-align:center;"></h2>
-
-  <div class="ceo">
-<h1>NYX TECH INC.</h1>
-<p><strong>(Neural Yielding eXecution)</strong></p>
-<p><i>“NYX OS is the intelligence layer powering decisions across individuals and enterprises worldwide.”</i></p>
-<hr>
-
-<h2>ADILSON SMITH</h2>
-<p><strong>CEO & Fundador – NYX Tech Inc.</strong></p>
-
-<p>
-CEO y fundador de NYX Tech Inc, enfocado en el desarrollo de tecnología avanzada e inteligencia digital.
-Lidero la creación de soluciones innovadoras que buscan transformar la forma en que las personas y empresas toman decisiones.
-</p>
-
-<hr>
-
-<p><strong>📍 Ubicación:</strong> EE.UU, NEW YOR</p>
-<p><strong>💼 Cargo:</strong> CEO & Fundador</p>
-<p><strong>🏢 Empresa:</strong> NYX Tech Inc.</p>
-<p><strong>📧 Email:</strong> Adilsonsmithhq@gmail.com</p>
-<p><strong>📱 Teléfono:</strong> +21984594024</p>
-<p><strong>🌐 Web:</strong> https://adilsonnyx.github.io/nyx-tech-inc/</p>
-
-<hr>
-
-<p>
-Fundador de NYX Tech Inc., empresa enfocada en el desarrollo de sistemas inteligentes (NYX OS).
-Liderazgo en estrategia, innovación y crecimiento tecnológico.
-</p>
-
-<h3>ECOSISTEMA</h3>
-<p>NYX OS → cerebro</p>
-<p>NYX CORE → cuerpo físico</p>
-
-<p><strong>Construyendo la infraestructura de inteligencia global para la próxima generación.</strong></p>
-
-<h3>Visión</h3>
-<p>
-Construir la infraestructura de inteligencia global que permita a individuos y organizaciones operar con mayor eficiencia,
-precisión y autonomía en la toma de decisiones.
-</p>
-
-<h3>Misión</h3>
-<p>
-Desarrollar tecnología que redefina la relación entre humanos y sistemas digitales,
-llevando la inteligencia artificial a un nivel práctico, accesible y universal.
-</p>
-  </div>
 </div>
 
 <!-- OPERAR -->
@@ -190,19 +108,14 @@ llevando la inteligencia artificial a un nivel práctico, accesible y universal.
 <div id="invertir" class="pantalla">
   <h2>Invertir</h2>
 
-  <input id="monto" type="number" placeholder="Monto personalizado">
-  <button onclick="invertir()">Invertir manual</button>
+  <input id="monto" type="number" placeholder="Monto">
+  <button onclick="invertir()">Invertir</button>
   <p id="resultado"></p>
-
-  <h3>Planes (20% mensual)</h3>
 
   <div class="card">
     <button onclick="plan(300)">$300 → $360</button><br><br>
-    <button onclick="plan(500)">$500 → $600</button><br><br>
-    <button onclick="plan(1000)">$1,000 → $1,200</button><br><br>
-    <button onclick="plan(2000)">$2,000 → $2,400</button><br><br>
-    <button onclick="plan(5000)">$5,000 → $6,000</button><br><br>
-    <button onclick="plan(10000)">$10,000 → $12,000</button>
+    <button onclick="plan(1000)">$1000 → $1200</button><br><br>
+    <button onclick="plan(5000)">$5000 → $6000</button>
   </div>
 </div>
 
@@ -218,20 +131,6 @@ llevando la inteligencia artificial a un nivel práctico, accesible y universal.
       <option>USDT</option>
     </select>
   </div>
-
-  <div class="card">
-    <h3>Moneda Local</h3>
-    <select>
-      <option>Estados Unidos</option>
-      <option>Perú</option>
-      <option>México</option>
-      <option>España</option>
-      <option>Argentina</option>
-      <option>Chile</option>
-      <option>Colombia</option>
-      <option>Brasil</option>
-    </select>
-  </div>
 </div>
 
 <!-- ENVIAR -->
@@ -240,17 +139,15 @@ llevando la inteligencia artificial a un nivel práctico, accesible y universal.
 
   <label>País</label>
   <select id="pais" onchange="cargarBancos()">
-    <option value="">Seleccionar</option>
-    <option value="peru">Perú</option>
-    <option value="argentina">Argentina</option>
-    <option value="mexico">México</option>
-    <option value="usa">Estados Unidos</option>
-    <option value="espana">España</option>
+    <option value="">Seleccionar país</option>
+    <option value="latam">🌎 Latinoamérica</option>
+    <option value="usa">🇺🇸 Estados Unidos</option>
+    <option value="europa">🇪🇺 Europa</option>
   </select>
 
   <label>Banco</label>
   <select id="banco">
-    <option>Selecciona un país</option>
+    <option>Selecciona país</option>
   </select>
 
   <input placeholder="Número de cuenta">
@@ -265,20 +162,17 @@ llevando la inteligencia artificial a un nivel práctico, accesible y universal.
   <h2>Login</h2>
   <input placeholder="Correo">
   <input type="password" placeholder="Contraseña">
-  <button onclick="alert('Login simulado')">Entrar</button>
+  <button>Entrar</button>
 </div>
 
 <!-- REGISTRO -->
 <div id="registro" class="pantalla">
   <h2>Registro</h2>
-  <input placeholder="Nombre completo">
+  <input placeholder="Nombre">
   <input placeholder="Correo">
   <input placeholder="Celular">
   <input placeholder="DNI">
-  <input type="date">
-  <input placeholder="Dirección">
-  <input placeholder="Código Postal">
-  <button onclick="alert('Registro completo')">Registrarse</button>
+  <button>Registrar</button>
 </div>
 
 </div>
@@ -312,55 +206,67 @@ function actualizar(){
 
   document.getElementById("gold").innerText="$"+formato(gold);
   document.getElementById("nasdaq").innerText=formato(nasdaq);
-  document.getElementById("liquidez").innerText="NYX Global Liquidity: $"+formato(liquidez);
+  document.getElementById("liquidez").innerText="NYX Liquidity: $"+formato(liquidez);
 }
 
 setInterval(actualizar,2000);
 actualizar();
 
-/* INVERTIR */
+/* invertir */
 function invertir(){
   let m=document.getElementById("monto").value;
-  if(m>0){
-    document.getElementById("resultado").innerText="Retorno mensual: $"+formato(m*1.2);
-  }
+  document.getElementById("resultado").innerText="Ganancia: $"+formato(m*1.2);
 }
-
 function plan(m){
-  alert("Invertiste $" + formato(m) + " → $" + formato(m*1.2));
+  alert("Invertiste $" + formato(m));
 }
 
-/* BANCOS */
+/* bancos por secciones */
 const bancos = {
-  peru:["BCP","BBVA","Interbank","Scotiabank"],
-  argentina:["Banco Nación","Galicia","Santander","BBVA"],
-  mexico:["BBVA","Banorte","Santander","HSBC"],
-  usa:["Chase","Bank of America","Wells Fargo","Citibank"],
-  espana:["Santander","BBVA","CaixaBank"]
+  latam: [
+    {grupo:"Perú", lista:["BCP","BBVA Perú","Interbank"]},
+    {grupo:"Argentina", lista:["Banco Nación","Galicia","Santander"]},
+    {grupo:"México", lista:["BBVA México","Banorte","HSBC"]}
+  ],
+  usa: [
+    {grupo:"Estados Unidos", lista:["Chase","Bank of America","Wells Fargo"]}
+  ],
+  europa: [
+    {grupo:"España", lista:["Santander","BBVA","CaixaBank"]},
+    {grupo:"Alemania", lista:["Deutsche Bank","Commerzbank"]}
+  ]
 };
 
 function cargarBancos(){
   let pais=document.getElementById("pais").value;
-  let banco=document.getElementById("banco");
-  banco.innerHTML="";
+  let select=document.getElementById("banco");
 
-  if(bancos[pais]){
-    bancos[pais].forEach(b=>{
+  select.innerHTML="";
+
+  if(!pais) return;
+
+  bancos[pais].forEach(grupo=>{
+    let optgroup=document.createElement("optgroup");
+    optgroup.label=grupo.grupo;
+
+    grupo.lista.forEach(b=>{
       let op=document.createElement("option");
       op.text=b;
-      banco.add(op);
+      optgroup.appendChild(op);
     });
-  }
+
+    select.appendChild(optgroup);
+  });
 }
 
 function enviarDinero(){
-  document.getElementById("mensaje").innerText="Transferencia en proceso...";
+  document.getElementById("mensaje").innerText="Transferencia procesada ✔";
 }
 
 setTimeout(()=>{
   document.getElementById("loader").style.display="none";
   document.getElementById("app").style.display="block";
-},1500);
+},1000);
 </script>
 
 </body>
