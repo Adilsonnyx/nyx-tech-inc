@@ -383,3 +383,68 @@ setInterval(simular,100);
 </script>
 </body>
 </html>
+// ====== VELAS JAPONESAS NYX ======
+
+let canvas = document.getElementById("graficoVelas");
+let ctx = canvas.getContext("2d");
+
+let velas = [];
+let precioActual = liquidez;
+
+function nuevaVela(){
+  let open = precioActual;
+
+  precioActual += (Math.random() - 0.5) * 2000;
+
+  let close = precioActual;
+  let high = Math.max(open, close) + Math.random()*500;
+  let low = Math.min(open, close) - Math.random()*500;
+
+  velas.push({open, close, high, low});
+
+  if(velas.length > 30){
+    velas.shift();
+  }
+}
+
+function dibujarVelas(){
+
+  ctx.clearRect(0,0,400,200);
+
+  let ancho = 10;
+  let espacio = 5;
+
+  for(let i=0;i<velas.length;i++){
+
+    let v = velas[i];
+    let x = i * (ancho + espacio);
+
+    let scale = 200 / 100000;
+
+    let openY = 200 - v.open * scale;
+    let closeY = 200 - v.close * scale;
+    let highY = 200 - v.high * scale;
+    let lowY = 200 - v.low * scale;
+
+    ctx.strokeStyle = v.close > v.open ? "green" : "red";
+    ctx.fillStyle = ctx.strokeStyle;
+
+    // mecha
+    ctx.beginPath();
+    ctx.moveTo(x + ancho/2, highY);
+    ctx.lineTo(x + ancho/2, lowY);
+    ctx.stroke();
+
+    // cuerpo
+    let altura = Math.abs(openY - closeY);
+    ctx.fillRect(x, Math.min(openY, closeY), ancho, altura || 1);
+  }
+}
+
+function loopVelas(){
+  nuevaVela();
+  dibujarVelas();
+  requestAnimationFrame(loopVelas);
+}
+
+loopVelas();
