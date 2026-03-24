@@ -431,6 +431,79 @@ setInterval(() => {
 
 }, 500);
 </script>
+  <!-- ===== NYX TRADING GRAPH ===== -->
+<div style="width:100%; text-align:center; margin-top:40px;">
+  <h2 style="color:white;">NYX Market Chart</h2>
+  <canvas id="graficoVelas" width="900" height="350" style="background:#000; border:1px solid #222;"></canvas>
+</div>
+
+<script>
+window.onload = function(){
+
+  let canvas = document.getElementById("graficoVelas");
+  let ctx = canvas.getContext("2d");
+
+  let velas = [];
+  let precio = 50000;
+
+  function nuevaVela(){
+
+    let open = precio;
+    precio += (Math.random() - 0.5) * 1500;
+    let close = precio;
+
+    let high = Math.max(open, close) + Math.random()*400;
+    let low = Math.min(open, close) - Math.random()*400;
+
+    velas.push({open, close, high, low});
+
+    if(velas.length > 40){
+      velas.shift();
+    }
+  }
+
+  function dibujar(){
+
+    ctx.clearRect(0,0,900,350);
+
+    let ancho = 12;
+    let espacio = 6;
+
+    velas.forEach((v,i)=>{
+
+      let x = i * (ancho + espacio) + 20;
+      let scale = 350 / 100000;
+
+      let openY = 350 - v.open * scale;
+      let closeY = 350 - v.close * scale;
+      let highY = 350 - v.high * scale;
+      let lowY = 350 - v.low * scale;
+
+      let color = v.close > v.open ? "#00ff88" : "#ff2e2e";
+
+      ctx.strokeStyle = color;
+      ctx.fillStyle = color;
+
+      // mecha
+      ctx.beginPath();
+      ctx.moveTo(x + ancho/2, highY);
+      ctx.lineTo(x + ancho/2, lowY);
+      ctx.stroke();
+
+      // cuerpo
+      ctx.fillRect(x, Math.min(openY, closeY), ancho, Math.abs(openY - closeY) || 2);
+    });
+  }
+
+  function loop(){
+    nuevaVela();
+    dibujar();
+    requestAnimationFrame(loop);
+  }
+
+  loop();
+}
+</script>
 </body>
 </html>
 </script>
