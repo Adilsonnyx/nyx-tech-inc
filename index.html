@@ -432,4 +432,66 @@ setInterval(() => {
 }, 500);
 </script>
 </body>
-</html>
+</html><div style="text-align:center; margin-top:20px;">
+  <canvas id="graficoVelas" width="350" height="180" style="background:black;"></canvas>
+</div>
+
+<script>
+window.onload = function(){
+
+  let canvas = document.getElementById("graficoVelas");
+
+  if(!canvas){
+    alert("No se encontró el gráfico");
+    return;
+  }
+
+  let ctx = canvas.getContext("2d");
+
+  let precio = 50000;
+  let velas = [];
+
+  function actualizar(){
+
+    let open = precio;
+    precio += (Math.random() - 0.5) * 2000;
+    let close = precio;
+
+    let high = Math.max(open, close) + 300;
+    let low = Math.min(open, close) - 300;
+
+    velas.push({open, close, high, low});
+
+    if(velas.length > 20) velas.shift();
+
+    ctx.clearRect(0,0,350,180);
+
+    velas.forEach((v,i)=>{
+
+      let x = i * 15;
+      let scale = 180 / 100000;
+
+      let openY = 180 - v.open * scale;
+      let closeY = 180 - v.close * scale;
+      let highY = 180 - v.high * scale;
+      let lowY = 180 - v.low * scale;
+
+      let color = v.close > v.open ? "green" : "red";
+
+      ctx.strokeStyle = color;
+      ctx.fillStyle = color;
+
+      ctx.beginPath();
+      ctx.moveTo(x+5, highY);
+      ctx.lineTo(x+5, lowY);
+      ctx.stroke();
+
+      ctx.fillRect(x, Math.min(openY, closeY), 10, Math.abs(openY - closeY) || 1);
+    });
+
+    requestAnimationFrame(actualizar);
+  }
+
+  actualizar();
+}
+</script>
