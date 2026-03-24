@@ -325,7 +325,38 @@ setTimeout(()=>{
   document.getElementById("loader").style.display="none";
   document.getElementById("app").style.display="block";
 },1000);
-</script>
+</script> // 🔥 MOTOR NYX (fluido tipo real)
+let velocidad = 0;
+
+function motorNYX(){
+
+  let aceleracion = (Math.random() - 0.5) * 2;
+
+  velocidad += aceleracion;
+  velocidad *= 0.98;
+
+  liquidez += velocidad * 50;
+
+  if(liquidez < 20000){
+    velocidad += 5;
+  }
+
+  if(liquidez > 95000){
+    velocidad -= 5;
+  }
+
+  gold += velocidad * 2;
+  nasdaq += velocidad * 10;
+
+  document.getElementById("gold").innerText="$"+formato(gold);
+  document.getElementById("nasdaq").innerText=formato(nasdaq);
+  document.getElementById("liquidez").innerText="NYX Global Liquidity: $"+formato(liquidez);
+
+  requestAnimationFrame(motorNYX);
+}
+
+// 🔥 ARRANQUE AUTOMÁTICO
+motorNYX();
 
 </body>
 </html>
