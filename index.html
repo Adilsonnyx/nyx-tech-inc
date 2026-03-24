@@ -357,6 +357,57 @@ function motorNYX(){
 
 // 🔥 ARRANQUE AUTOMÁTICO
 motorNYX();
+<canvas id="grafico" width="400" height="150" style="margin:20px;"></canvas>
 
+<script>
+// 🔥 GRAFICO SIMPLE NYX
+let canvas = document.getElementById("grafico");
+let ctx = canvas.getContext("2d");
+
+let datos = [];
+let liquidezGrafico = 50000;
+
+// simulación independiente (por si tu motor falla)
+function simular(){
+
+  liquidezGrafico += (Math.random() - 0.5) * 2000;
+
+  if(liquidezGrafico < 15000) liquidezGrafico = 15000;
+  if(liquidezGrafico > 100000) liquidezGrafico = 100000;
+
+  datos.push(liquidezGrafico);
+
+  if(datos.length > 50){
+    datos.shift();
+  }
+
+  dibujar();
+}
+
+function dibujar(){
+
+  ctx.clearRect(0,0,400,150);
+
+  ctx.beginPath();
+
+  for(let i=0;i<datos.length;i++){
+    let x = i * 8;
+    let y = 150 - (datos[i] / 100000) * 150;
+
+    if(i===0){
+      ctx.moveTo(x,y);
+    } else {
+      ctx.lineTo(x,y);
+    }
+  }
+
+  ctx.strokeStyle = "red";
+  ctx.lineWidth = 2;
+  ctx.stroke();
+}
+
+// velocidad tipo trading
+setInterval(simular,100);
+</script>
 </body>
 </html>
