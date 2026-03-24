@@ -330,10 +330,10 @@ let velocidad = 0;
 
 function motorNYX(){
 
-  let aceleracion = (Math.random() - 0.3) * 2;
+  let aceleracion = (Math.random() - 1) * 2;
 
   velocidad += aceleracion;
-  velocidad *= 0.58;
+  velocidad *= 2;
 
   liquidez += velocidad * 50;
 
