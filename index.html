@@ -243,25 +243,30 @@ let liquidez=89456.67;
 
 function actualizar(){
 
-  // GOLD (movimiento normal)
-  gold += (Math.random()-0.5)*5;
+  // GOLD (rápido)
+  gold += (Math.random()-0.5)*50;
 
-  // NASDAQ (movimiento medio)
-  nasdaq += (Math.random()-0.5)*30;
+  // NASDAQ (muy rápido)
+  nasdaq += (Math.random()-0.5)*300;
 
-  // 🔥 LIQUIDEZ (movimiento agresivo tipo mercado)
-  let cambio = (Math.random() - 0.5) * 200;
+  // 🔥 LIQUIDEZ MODO EXTREMO
+  let cambio = (Math.random() - 0.5) * 8000;
 
-  // picos extremos
-  if(Math.random() < 0.3){
-    cambio *= 3;
+  // mega picos (crash o pump brutal)
+  if(Math.random() < 0.5){
+    cambio *= 5;
   }
 
   liquidez += cambio;
 
-  // límites
-  if(liquidez < 15000) liquidez = 15000;
-  if(liquidez > 100000) liquidez = 100000;
+  // rebotes agresivos
+  if(liquidez < 20000){
+    liquidez += Math.random()*30000;
+  }
+
+  if(liquidez > 95000){
+    liquidez -= Math.random()*40000;
+  }
 
   // actualizar pantalla
   document.getElementById("gold").innerText="$"+formato(gold);
