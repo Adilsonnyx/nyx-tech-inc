@@ -338,15 +338,15 @@ function motorNYX(){
   liquidez += velocidad * 30;
 
   if(liquidez < 20000){
-    velocidad += 5;
+    velocidad += 3;
   }
 
   if(liquidez > 95000){
-    velocidad -= 5;
+    velocidad -= 3;
   }
 
-  gold += velocidad * 2;
-  nasdaq += velocidad * 10;
+  gold += velocidad * 1.5;
+  nasdaq += velocidad * 6;
 
   document.getElementById("gold").innerText="$"+formato(gold);
   document.getElementById("nasdaq").innerText=formato(nasdaq);
