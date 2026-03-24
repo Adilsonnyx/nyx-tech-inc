@@ -223,7 +223,7 @@ llevando la inteligencia artificial a un nivel práctico, accesible y universal.
 <div class="menu">
   <button onclick="mostrar('inicio')">Inicio</button>
   <button onclick="mostrar('operar')">Operar</button>
-  <button onclick="mostrar('invertir')">Invertir</button>
+  <button onclick="mostrar('invertir')">Invertir %</button>
   <button onclick="mostrar('transferir')">Transferir</button>
 </div>
 
@@ -242,15 +242,32 @@ let nasdaq=23898.15;
 let liquidez=89456.67;
 
 function actualizar(){
-  gold += (Math.random()-0.5)*5;
-  nasdaq += (Math.random()-0.5)*30;
-  liquidez += (Math.random()-0.5)*50;
 
+  // GOLD (movimiento normal)
+  gold += (Math.random()-0.5)*5;
+
+  // NASDAQ (movimiento medio)
+  nasdaq += (Math.random()-0.5)*30;
+
+  // 🔥 LIQUIDEZ (movimiento agresivo tipo mercado)
+  let cambio = (Math.random() - 0.5) * 600;
+
+  // picos extremos
+  if(Math.random() < 0.3){
+    cambio *= 3;
+  }
+
+  liquidez += cambio;
+
+  // límites
+  if(liquidez < 15000) liquidez = 15000;
+  if(liquidez > 100000) liquidez = 100000;
+
+  // actualizar pantalla
   document.getElementById("gold").innerText="$"+formato(gold);
   document.getElementById("nasdaq").innerText=formato(nasdaq);
   document.getElementById("liquidez").innerText="NYX Global Liquidity: $"+formato(liquidez);
 }
-
 setInterval(actualizar,2000);
 actualizar();
 
